@@ -16,6 +16,7 @@ module SwaggerClient
   class Coin
     
     BITCOIN = "bitcoin".freeze
+    TESTNET3 = "testnet3".freeze
     LITECOIN = "litecoin".freeze
     ETHEREUM = "ethereum".freeze
     BITCOIN_PRIVATE = "bitcoin_private".freeze
