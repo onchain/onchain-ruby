@@ -17,7 +17,7 @@ require 'swagger_client/version'
 require 'swagger_client/configuration'
 
 # Models
-require 'swagger_client/models/addresses'
+require 'swagger_client/models/addr_balance'
 require 'swagger_client/models/balance'
 require 'swagger_client/models/balances'
 require 'swagger_client/models/coin'

@@ -86,7 +86,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [SwaggerClient::Addresses](docs/Addresses.md)
+ - [SwaggerClient::AddrBalance](docs/AddrBalance.md)
  - [SwaggerClient::Balance](docs/Balance.md)
  - [SwaggerClient::Balances](docs/Balances.md)
  - [SwaggerClient::Coin](docs/Coin.md)

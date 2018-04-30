@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addresses** | [**Addresses**](Addresses.md) |  | [optional] 
+**addresses** | [**Array&lt;AddrBalance&gt;**](AddrBalance.md) |  | [optional] 
 **totals** | [**Balance**](Balance.md) |  | [optional] 
 
 

@@ -42,7 +42,9 @@ describe 'AddressAPIApi' do
   describe 'get_balance test' do
     it "should work" do
       address_api = SwaggerClient::AddressAPIApi.new
-      puts address_api.get_balance('bitcoin', '1STRonGxnFTeJiA7pgyneKknR29AwBM77')
+      bal =  address_api.get_balance('bitcoin', '1STRonGxnFTeJiA7pgyneKknR29AwBM77')
+      puts bal
+      puts bal.class
     end
   end
 
@@ -55,7 +57,10 @@ describe 'AddressAPIApi' do
   # @return [Balances]
   describe 'get_balances test' do
     it "should work" do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      address_api = SwaggerClient::AddressAPIApi.new
+      bals = address_api.get_balances(SwaggerClient::Coin::BITCOIN, '1STRonGxnFTeJiA7pgyneKknR29AwBM77,1HT7xU2Ngenf7D4yocz2SAcnNLW7rK8d4E')
+      puts bals
+      puts bals.class
     end
   end
 
