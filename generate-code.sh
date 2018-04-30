@@ -12,6 +12,7 @@ wget $download -O ruby-client.zip --no-check-certificate
 unzip ruby-client.zip
 
 rm -rf ruby-client/spec
+rm -rf ruby-client/lib/swagger_client/version.rb
 
 cp -r ruby-client/* .
 
