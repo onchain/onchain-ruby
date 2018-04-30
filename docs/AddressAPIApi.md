@@ -111,7 +111,7 @@ No authorization required
 
 
 # **get_history**
-> Array&lt;History&gt; get_history(coin, addresses)
+> History get_history(coin, addresses)
 
 Get History
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;History&gt;**](History.md)
+[**History**](History.md)
 
 ### Authorization
 

@@ -143,7 +143,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param addresses A comma seperated list of public addresses
     # @param [Hash] opts the optional parameters
-    # @return [Array<History>]
+    # @return [History]
     def get_history(coin, addresses, opts = {})
       data, _status_code, _headers = get_history_with_http_info(coin, addresses, opts)
       return data
@@ -154,7 +154,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param addresses A comma seperated list of public addresses
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<History>, Fixnum, Hash)>] Array<History> data, response status code and response headers
+    # @return [Array<(History, Fixnum, Hash)>] History data, response status code and response headers
     def get_history_with_http_info(coin, addresses, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: AddressAPIApi.get_history ..."
@@ -190,7 +190,7 @@ module SwaggerClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<History>')
+        :return_type => 'History')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AddressAPIApi#get_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
