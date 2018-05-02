@@ -24,7 +24,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::AddressAPIApi.new
 
-coin = "coin_example" # String | The name of the coin i.e. bitcoin
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 address = "address_example" # String | The public address to lookup
 
@@ -74,7 +74,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::AddressAPIApi.new
 
-coin = "coin_example" # String | The name of the coin i.e. bitcoin
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 addresses = "addresses_example" # String | A comma seperated list of public addresses
 
@@ -124,7 +124,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::AddressAPIApi.new
 
-coin = "coin_example" # String | The name of the coin i.e. bitcoin
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 addresses = "addresses_example" # String | A comma seperated list of public addresses
 
@@ -174,7 +174,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::AddressAPIApi.new
 
-coin = "coin_example" # String | The name of the coin i.e. bitcoin
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 addresses = "addresses_example" # String | A comma seperated list of public addresses
 

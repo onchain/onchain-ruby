@@ -56,7 +56,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::AddressAPIApi.new
 
-coin = "coin_example" # String | The name of the coin i.e. bitcoin
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 address = "address_example" # String | The public address to lookup
 
@@ -81,7 +81,9 @@ Class | Method | HTTP request | Description
 *SwaggerClient::AddressAPIApi* | [**get_balances**](docs/AddressAPIApi.md#get_balances) | **GET** /address/balances/{coin}/{addresses} | Get Balances
 *SwaggerClient::AddressAPIApi* | [**get_history**](docs/AddressAPIApi.md#get_history) | **GET** /address/history/{coin}/{addresses} | Get History
 *SwaggerClient::AddressAPIApi* | [**get_unspent**](docs/AddressAPIApi.md#get_unspent) | **GET** /address/utxo/{coin}/{addresses} | Get Unspent Outs
-*SwaggerClient::TransactionAPIApi* | [**send_tx**](docs/TransactionAPIApi.md#send_tx) | **POST** /transaction/send/{coin}/{rawtx} | Send Transaction
+*SwaggerClient::TransactionAPIApi* | [**send_tx**](docs/TransactionAPIApi.md#send_tx) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
+*SwaggerClient::TransactionAPIApi* | [**send_tx_0**](docs/TransactionAPIApi.md#send_tx_0) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
+*SwaggerClient::TransactionAPIApi* | [**send_tx_1**](docs/TransactionAPIApi.md#send_tx_1) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
 
 
 ## Documentation for Models
@@ -90,8 +92,11 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::Balance](docs/Balance.md)
  - [SwaggerClient::Balances](docs/Balances.md)
  - [SwaggerClient::Coin](docs/Coin.md)
+ - [SwaggerClient::HashToSign](docs/HashToSign.md)
+ - [SwaggerClient::HashesToSign](docs/HashesToSign.md)
  - [SwaggerClient::History](docs/History.md)
  - [SwaggerClient::InlineResponseDefault](docs/InlineResponseDefault.md)
+ - [SwaggerClient::Signature](docs/Signature.md)
  - [SwaggerClient::Tx](docs/Tx.md)
  - [SwaggerClient::Utxo](docs/Utxo.md)
  - [SwaggerClient::Vins](docs/Vins.md)

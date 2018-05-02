@@ -4,15 +4,17 @@ All URIs are relative to *https://onchain.io/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**send_tx**](TransactionAPIApi.md#send_tx) | **POST** /transaction/send/{coin}/{rawtx} | Send Transaction
+[**send_tx**](TransactionAPIApi.md#send_tx) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
+[**send_tx_0**](TransactionAPIApi.md#send_tx_0) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
+[**send_tx_1**](TransactionAPIApi.md#send_tx_1) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
 
 
 # **send_tx**
-> InlineResponseDefault send_tx(coin, rawtx)
+> HashesToSign send_tx(coin, to, from, amount, opts)
 
-Send Transaction
+Create Unsigned Transaction
 
-Send a transaction onto the network.
+Create an unsigned transaction
 
 ### Example
 ```ruby
@@ -21,14 +23,23 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::TransactionAPIApi.new
 
-coin = "coin_example" # String | The name of the coin i.e. bitcoin
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
-rawtx = "rawtx_example" # String | The raw signed transaction as a hex string
+to = "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"" # String | The address to send coins to.
 
+from = "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"" # String | The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met.
+
+amount = "80000" # String | The amount we wish to send.
+
+opts = { 
+  fee_address: "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"", # String | An address to send fees to.
+  fee_amount: "10000", # String | The amount of fees to send.
+  miners_fee: "10000" # String | The amount to send to the miners.
+}
 
 begin
-  #Send Transaction
-  result = api_instance.send_tx(coin, rawtx)
+  #Create Unsigned Transaction
+  result = api_instance.send_tx(coin, to, from, amount, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling TransactionAPIApi->send_tx: #{e}"
@@ -40,7 +51,115 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| The name of the coin i.e. bitcoin | 
+ **to** | **String**| The address to send coins to. | 
+ **from** | **String**| The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. | 
+ **amount** | **String**| The amount we wish to send. | 
+ **fee_address** | **String**| An address to send fees to. | [optional] 
+ **fee_amount** | **String**| The amount of fees to send. | [optional] 
+ **miners_fee** | **String**| The amount to send to the miners. | [optional] 
+
+### Return type
+
+[**HashesToSign**](HashesToSign.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **send_tx_0**
+> InlineResponseDefault send_tx_0(coin, rawtx)
+
+Send Raw Transaction
+
+Send a transaction onto the network.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+
+api_instance = SwaggerClient::TransactionAPIApi.new
+
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
+
+rawtx = "rawtx_example" # String | The raw signed transaction as a hex string
+
+
+begin
+  #Send Raw Transaction
+  result = api_instance.send_tx_0(coin, rawtx)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling TransactionAPIApi->send_tx_0: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coin** | **String**| The name of the coin i.e. bitcoin | 
  **rawtx** | **String**| The raw signed transaction as a hex string | 
+
+### Return type
+
+[**InlineResponseDefault**](InlineResponseDefault.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **send_tx_1**
+> InlineResponseDefault send_tx_1(coin, tx, signatures)
+
+Sign and Send a Transaction
+
+Sign and send transaction onto the network.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+
+api_instance = SwaggerClient::TransactionAPIApi.new
+
+coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
+
+tx = "tx_example" # String | The raw unsigned transaction as a hex string
+
+signatures = [SwaggerClient::Signature.new] # Array<Signature> | The raw unsigned transaction as a hex string
+
+
+begin
+  #Sign and Send a Transaction
+  result = api_instance.send_tx_1(coin, tx, signatures)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling TransactionAPIApi->send_tx_1: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coin** | **String**| The name of the coin i.e. bitcoin | 
+ **tx** | **String**| The raw unsigned transaction as a hex string | 
+ **signatures** | [**Array&lt;Signature&gt;**](Signature.md)| The raw unsigned transaction as a hex string | 
 
 ### Return type
 
