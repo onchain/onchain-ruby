@@ -29,10 +29,10 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fee_address An address to send fees to.
     # @option opts [String] :fee_amount The amount of fees to send.
-    # @option opts [String] :miners_fee The amount to send to the miners.
+    # @option opts [Integer] :miners_fee The amount to send to the miners.
     # @return [HashesToSign]
-    def send_tx(coin, to, from, amount, opts = {})
-      data, _status_code, _headers = send_tx_with_http_info(coin, to, from, amount, opts)
+    def create(coin, to, from, amount, opts = {})
+      data, _status_code, _headers = create_with_http_info(coin, to, from, amount, opts)
       return data
     end
 
@@ -45,27 +45,27 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fee_address An address to send fees to.
     # @option opts [String] :fee_amount The amount of fees to send.
-    # @option opts [String] :miners_fee The amount to send to the miners.
+    # @option opts [Integer] :miners_fee The amount to send to the miners.
     # @return [Array<(HashesToSign, Fixnum, Hash)>] HashesToSign data, response status code and response headers
-    def send_tx_with_http_info(coin, to, from, amount, opts = {})
+    def create_with_http_info(coin, to, from, amount, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: TransactionAPIApi.send_tx ..."
+        @api_client.config.logger.debug "Calling API: TransactionAPIApi.create ..."
       end
       # verify the required parameter 'coin' is set
       if @api_client.config.client_side_validation && coin.nil?
-        fail ArgumentError, "Missing the required parameter 'coin' when calling TransactionAPIApi.send_tx"
+        fail ArgumentError, "Missing the required parameter 'coin' when calling TransactionAPIApi.create"
       end
       # verify the required parameter 'to' is set
       if @api_client.config.client_side_validation && to.nil?
-        fail ArgumentError, "Missing the required parameter 'to' when calling TransactionAPIApi.send_tx"
+        fail ArgumentError, "Missing the required parameter 'to' when calling TransactionAPIApi.create"
       end
       # verify the required parameter 'from' is set
       if @api_client.config.client_side_validation && from.nil?
-        fail ArgumentError, "Missing the required parameter 'from' when calling TransactionAPIApi.send_tx"
+        fail ArgumentError, "Missing the required parameter 'from' when calling TransactionAPIApi.create"
       end
       # verify the required parameter 'amount' is set
       if @api_client.config.client_side_validation && amount.nil?
-        fail ArgumentError, "Missing the required parameter 'amount' when calling TransactionAPIApi.send_tx"
+        fail ArgumentError, "Missing the required parameter 'amount' when calling TransactionAPIApi.create"
       end
       # resource path
       local_var_path = "/transaction/create/{coin}".sub('{' + 'coin' + '}', coin.to_s)
@@ -98,7 +98,7 @@ module SwaggerClient
         :auth_names => auth_names,
         :return_type => 'HashesToSign')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TransactionAPIApi#send_tx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TransactionAPIApi#create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -109,8 +109,8 @@ module SwaggerClient
     # @param rawtx The raw signed transaction as a hex string
     # @param [Hash] opts the optional parameters
     # @return [InlineResponseDefault]
-    def send_tx_0(coin, rawtx, opts = {})
-      data, _status_code, _headers = send_tx_0_with_http_info(coin, rawtx, opts)
+    def send_raw(coin, rawtx, opts = {})
+      data, _status_code, _headers = send_raw_with_http_info(coin, rawtx, opts)
       return data
     end
 
@@ -120,17 +120,17 @@ module SwaggerClient
     # @param rawtx The raw signed transaction as a hex string
     # @param [Hash] opts the optional parameters
     # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
-    def send_tx_0_with_http_info(coin, rawtx, opts = {})
+    def send_raw_with_http_info(coin, rawtx, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: TransactionAPIApi.send_tx_0 ..."
+        @api_client.config.logger.debug "Calling API: TransactionAPIApi.send_raw ..."
       end
       # verify the required parameter 'coin' is set
       if @api_client.config.client_side_validation && coin.nil?
-        fail ArgumentError, "Missing the required parameter 'coin' when calling TransactionAPIApi.send_tx_0"
+        fail ArgumentError, "Missing the required parameter 'coin' when calling TransactionAPIApi.send_raw"
       end
       # verify the required parameter 'rawtx' is set
       if @api_client.config.client_side_validation && rawtx.nil?
-        fail ArgumentError, "Missing the required parameter 'rawtx' when calling TransactionAPIApi.send_tx_0"
+        fail ArgumentError, "Missing the required parameter 'rawtx' when calling TransactionAPIApi.send_raw"
       end
       # resource path
       local_var_path = "/transaction/send_raw/{coin}".sub('{' + 'coin' + '}', coin.to_s)
@@ -158,7 +158,7 @@ module SwaggerClient
         :auth_names => auth_names,
         :return_type => 'InlineResponseDefault')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TransactionAPIApi#send_tx_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TransactionAPIApi#send_raw\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -170,8 +170,8 @@ module SwaggerClient
     # @param signatures The raw unsigned transaction as a hex string
     # @param [Hash] opts the optional parameters
     # @return [InlineResponseDefault]
-    def send_tx_1(coin, tx, signatures, opts = {})
-      data, _status_code, _headers = send_tx_1_with_http_info(coin, tx, signatures, opts)
+    def sign_and_send(coin, tx, signatures, opts = {})
+      data, _status_code, _headers = sign_and_send_with_http_info(coin, tx, signatures, opts)
       return data
     end
 
@@ -182,21 +182,21 @@ module SwaggerClient
     # @param signatures The raw unsigned transaction as a hex string
     # @param [Hash] opts the optional parameters
     # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
-    def send_tx_1_with_http_info(coin, tx, signatures, opts = {})
+    def sign_and_send_with_http_info(coin, tx, signatures, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: TransactionAPIApi.send_tx_1 ..."
+        @api_client.config.logger.debug "Calling API: TransactionAPIApi.sign_and_send ..."
       end
       # verify the required parameter 'coin' is set
       if @api_client.config.client_side_validation && coin.nil?
-        fail ArgumentError, "Missing the required parameter 'coin' when calling TransactionAPIApi.send_tx_1"
+        fail ArgumentError, "Missing the required parameter 'coin' when calling TransactionAPIApi.sign_and_send"
       end
       # verify the required parameter 'tx' is set
       if @api_client.config.client_side_validation && tx.nil?
-        fail ArgumentError, "Missing the required parameter 'tx' when calling TransactionAPIApi.send_tx_1"
+        fail ArgumentError, "Missing the required parameter 'tx' when calling TransactionAPIApi.sign_and_send"
       end
       # verify the required parameter 'signatures' is set
       if @api_client.config.client_side_validation && signatures.nil?
-        fail ArgumentError, "Missing the required parameter 'signatures' when calling TransactionAPIApi.send_tx_1"
+        fail ArgumentError, "Missing the required parameter 'signatures' when calling TransactionAPIApi.sign_and_send"
       end
       # resource path
       local_var_path = "/transaction/sign_and_send/{coin}".sub('{' + 'coin' + '}', coin.to_s)
@@ -225,7 +225,7 @@ module SwaggerClient
         :auth_names => auth_names,
         :return_type => 'InlineResponseDefault')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TransactionAPIApi#send_tx_1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TransactionAPIApi#sign_and_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

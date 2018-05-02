@@ -4,13 +4,13 @@ All URIs are relative to *https://onchain.io/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**send_tx**](TransactionAPIApi.md#send_tx) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
-[**send_tx_0**](TransactionAPIApi.md#send_tx_0) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
-[**send_tx_1**](TransactionAPIApi.md#send_tx_1) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
+[**create**](TransactionAPIApi.md#create) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
+[**send_raw**](TransactionAPIApi.md#send_raw) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
+[**sign_and_send**](TransactionAPIApi.md#sign_and_send) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
 
 
-# **send_tx**
-> HashesToSign send_tx(coin, to, from, amount, opts)
+# **create**
+> HashesToSign create(coin, to, from, amount, opts)
 
 Create Unsigned Transaction
 
@@ -29,20 +29,20 @@ to = "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"" # String | The address to send co
 
 from = "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"" # String | The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met.
 
-amount = "80000" # String | The amount we wish to send.
+amount = 80000 # Integer | The amount we wish to send.
 
 opts = { 
   fee_address: "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"", # String | An address to send fees to.
   fee_amount: "10000", # String | The amount of fees to send.
-  miners_fee: "10000" # String | The amount to send to the miners.
+  miners_fee: 10000 # Integer | The amount to send to the miners.
 }
 
 begin
   #Create Unsigned Transaction
-  result = api_instance.send_tx(coin, to, from, amount, opts)
+  result = api_instance.create(coin, to, from, amount, opts)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling TransactionAPIApi->send_tx: #{e}"
+  puts "Exception when calling TransactionAPIApi->create: #{e}"
 end
 ```
 
@@ -53,10 +53,10 @@ Name | Type | Description  | Notes
  **coin** | **String**| The name of the coin i.e. bitcoin | 
  **to** | **String**| The address to send coins to. | 
  **from** | **String**| The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. | 
- **amount** | **String**| The amount we wish to send. | 
+ **amount** | **Integer**| The amount we wish to send. | 
  **fee_address** | **String**| An address to send fees to. | [optional] 
  **fee_amount** | **String**| The amount of fees to send. | [optional] 
- **miners_fee** | **String**| The amount to send to the miners. | [optional] 
+ **miners_fee** | **Integer**| The amount to send to the miners. | [optional] 
 
 ### Return type
 
@@ -73,8 +73,8 @@ No authorization required
 
 
 
-# **send_tx_0**
-> InlineResponseDefault send_tx_0(coin, rawtx)
+# **send_raw**
+> InlineResponseDefault send_raw(coin, rawtx)
 
 Send Raw Transaction
 
@@ -94,10 +94,10 @@ rawtx = "rawtx_example" # String | The raw signed transaction as a hex string
 
 begin
   #Send Raw Transaction
-  result = api_instance.send_tx_0(coin, rawtx)
+  result = api_instance.send_raw(coin, rawtx)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling TransactionAPIApi->send_tx_0: #{e}"
+  puts "Exception when calling TransactionAPIApi->send_raw: #{e}"
 end
 ```
 
@@ -123,8 +123,8 @@ No authorization required
 
 
 
-# **send_tx_1**
-> InlineResponseDefault send_tx_1(coin, tx, signatures)
+# **sign_and_send**
+> InlineResponseDefault sign_and_send(coin, tx, signatures)
 
 Sign and Send a Transaction
 
@@ -146,10 +146,10 @@ signatures = [SwaggerClient::Signature.new] # Array<Signature> | The raw unsigne
 
 begin
   #Sign and Send a Transaction
-  result = api_instance.send_tx_1(coin, tx, signatures)
+  result = api_instance.sign_and_send(coin, tx, signatures)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling TransactionAPIApi->send_tx_1: #{e}"
+  puts "Exception when calling TransactionAPIApi->sign_and_send: #{e}"
 end
 ```
 

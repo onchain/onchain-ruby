@@ -32,16 +32,23 @@ describe 'TransactionAPIApi' do
     end
   end
 
-  # unit tests for send_tx
-  # Send Transaction
-  # Send a transaction onto the network.
-  # @param coin The name of the coin i.e. bitcoin
-  # @param rawtx The raw signed transaction as a hex string
-  # @param [Hash] opts the optional parameters
-  # @return [InlineResponseDefault]
-  describe 'send_tx test' do
-    it "should work" do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+  describe 'create transaction test' do
+    it "should create a transaction" do
+      
+      tx = @instance.create('testnet3', 'mzYVx2FgY35SFkRNCSUxCGqd4UhXZ7eXmE', 'moQtPGgAPnMpN1jRoNsETEqfu1iP7VP3mV', 100000)
+      
+      puts tx
+      
+    end
+  end
+  
+  describe 'create transaction test' do
+    it "should create a transaction" do
+      
+      tx = @instance.send_raw('testnet3', '000000')
+      
+      puts tx
+      
     end
   end
 

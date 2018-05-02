@@ -81,9 +81,9 @@ Class | Method | HTTP request | Description
 *SwaggerClient::AddressAPIApi* | [**get_balances**](docs/AddressAPIApi.md#get_balances) | **GET** /address/balances/{coin}/{addresses} | Get Balances
 *SwaggerClient::AddressAPIApi* | [**get_history**](docs/AddressAPIApi.md#get_history) | **GET** /address/history/{coin}/{addresses} | Get History
 *SwaggerClient::AddressAPIApi* | [**get_unspent**](docs/AddressAPIApi.md#get_unspent) | **GET** /address/utxo/{coin}/{addresses} | Get Unspent Outs
-*SwaggerClient::TransactionAPIApi* | [**send_tx**](docs/TransactionAPIApi.md#send_tx) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
-*SwaggerClient::TransactionAPIApi* | [**send_tx_0**](docs/TransactionAPIApi.md#send_tx_0) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
-*SwaggerClient::TransactionAPIApi* | [**send_tx_1**](docs/TransactionAPIApi.md#send_tx_1) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
+*SwaggerClient::TransactionAPIApi* | [**create**](docs/TransactionAPIApi.md#create) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
+*SwaggerClient::TransactionAPIApi* | [**send_raw**](docs/TransactionAPIApi.md#send_raw) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
+*SwaggerClient::TransactionAPIApi* | [**sign_and_send**](docs/TransactionAPIApi.md#sign_and_send) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
 
 
 ## Documentation for Models
