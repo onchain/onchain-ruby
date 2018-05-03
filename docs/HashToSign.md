@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **String** |  | [optional] 
-**hash** | **String** |  | [optional] 
+**hash_to_sign** | **String** |  | [optional] 
 
 

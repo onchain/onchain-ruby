@@ -17,14 +17,14 @@ module SwaggerClient
   class HashToSign
     attr_accessor :address
 
-    attr_accessor :hash
+    attr_accessor :hash_to_sign
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'address' => :'address',
-        :'hash' => :'hash'
+        :'hash_to_sign' => :'hash_to_sign'
       }
     end
 
@@ -32,7 +32,7 @@ module SwaggerClient
     def self.swagger_types
       {
         :'address' => :'String',
-        :'hash' => :'String'
+        :'hash_to_sign' => :'String'
       }
     end
 
@@ -48,8 +48,8 @@ module SwaggerClient
         self.address = attributes[:'address']
       end
 
-      if attributes.has_key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.has_key?(:'hash_to_sign')
+        self.hash_to_sign = attributes[:'hash_to_sign']
       end
 
     end
@@ -73,7 +73,7 @@ module SwaggerClient
       return true if self.equal?(o)
       self.class == o.class &&
           address == o.address &&
-          hash == o.hash
+          hash_to_sign == o.hash_to_sign
     end
 
     # @see the `==` method
@@ -85,7 +85,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [address, hash].hash
+      [address, hash_to_sign].hash
     end
 
     # Builds the object from hash
