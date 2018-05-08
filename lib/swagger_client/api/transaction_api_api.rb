@@ -75,9 +75,9 @@ module SwaggerClient
       query_params[:'to'] = to
       query_params[:'from'] = from
       query_params[:'amount'] = amount
-      query_params[:'feeAddress'] = opts[:'fee_address'] if !opts[:'fee_address'].nil?
-      query_params[:'feeAmount'] = opts[:'fee_amount'] if !opts[:'fee_amount'].nil?
-      query_params[:'minersFee'] = opts[:'miners_fee'] if !opts[:'miners_fee'].nil?
+      query_params[:'fee_address'] = opts[:'fee_address'] if !opts[:'fee_address'].nil?
+      query_params[:'fee_amount'] = opts[:'fee_amount'] if !opts[:'fee_amount'].nil?
+      query_params[:'miners_fee'] = opts[:'miners_fee'] if !opts[:'miners_fee'].nil?
 
       # header parameters
       header_params = {}
