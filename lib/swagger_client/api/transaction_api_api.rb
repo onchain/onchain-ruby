@@ -21,10 +21,10 @@ module SwaggerClient
     end
 
     # Create Unsigned Transaction
-    # Create an unsigned transaction
+    # Create an unsigned transaction. OnChain returns the transaction for the specified coin in hex format along with a list of hashes that need to be signed.
     # @param coin The name of the coin i.e. bitcoin
     # @param to The address to send coins to.
-    # @param from The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met.
+    # @param from The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. We use the public hex key of the address not the hash.
     # @param amount The amount we wish to send.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fee_address An address to send fees to.
@@ -37,10 +37,10 @@ module SwaggerClient
     end
 
     # Create Unsigned Transaction
-    # Create an unsigned transaction
+    # Create an unsigned transaction. OnChain returns the transaction for the specified coin in hex format along with a list of hashes that need to be signed.
     # @param coin The name of the coin i.e. bitcoin
     # @param to The address to send coins to.
-    # @param from The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met.
+    # @param from The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. We use the public hex key of the address not the hash.
     # @param amount The amount we wish to send.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fee_address An address to send fees to.
@@ -167,7 +167,7 @@ module SwaggerClient
     # Sign and send transaction onto the network.
     # @param coin The name of the coin i.e. bitcoin
     # @param tx The raw unsigned transaction as a hex string
-    # @param signatures The raw unsigned transaction as a hex string
+    # @param signatures The list of hashes returned by the create API with the corresponding signatures from your private keys.
     # @param [Hash] opts the optional parameters
     # @return [InlineResponseDefault]
     def sign_and_send(coin, tx, signatures, opts = {})
@@ -179,7 +179,7 @@ module SwaggerClient
     # Sign and send transaction onto the network.
     # @param coin The name of the coin i.e. bitcoin
     # @param tx The raw unsigned transaction as a hex string
-    # @param signatures The raw unsigned transaction as a hex string
+    # @param signatures The list of hashes returned by the create API with the corresponding signatures from your private keys.
     # @param [Hash] opts the optional parameters
     # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
     def sign_and_send_with_http_info(coin, tx, signatures, opts = {})

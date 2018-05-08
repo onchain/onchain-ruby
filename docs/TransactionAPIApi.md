@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Create Unsigned Transaction
 
-Create an unsigned transaction
+Create an unsigned transaction. OnChain returns the transaction for the specified coin in hex format along with a list of hashes that need to be signed.
 
 ### Example
 ```ruby
@@ -27,7 +27,7 @@ coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 to = "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"" # String | The address to send coins to.
 
-from = "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"" # String | The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met.
+from = "\"036f3972643ab052f9f77cbaf67f0e517180ac488453bde8cb27e9e3e1d6847d49\"" # String | The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. We use the public hex key of the address not the hash.
 
 amount = 80000 # Integer | The amount we wish to send.
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| The name of the coin i.e. bitcoin | 
  **to** | **String**| The address to send coins to. | 
- **from** | **String**| The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. | 
+ **from** | **String**| The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. We use the public hex key of the address not the hash. | 
  **amount** | **Integer**| The amount we wish to send. | 
  **fee_address** | **String**| An address to send fees to. | [optional] 
  **fee_amount** | **String**| The amount of fees to send. | [optional] 
@@ -141,7 +141,7 @@ coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 tx = "tx_example" # String | The raw unsigned transaction as a hex string
 
-signatures = [SwaggerClient::Signature.new] # Array<Signature> | The raw unsigned transaction as a hex string
+signatures = [SwaggerClient::Signature.new] # Array<Signature> | The list of hashes returned by the create API with the corresponding signatures from your private keys.
 
 
 begin
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| The name of the coin i.e. bitcoin | 
  **tx** | **String**| The raw unsigned transaction as a hex string | 
- **signatures** | [**Array&lt;Signature&gt;**](Signature.md)| The raw unsigned transaction as a hex string | 
+ **signatures** | [**Array&lt;Signature&gt;**](Signature.md)| The list of hashes returned by the create API with the corresponding signatures from your private keys. | 
 
 ### Return type
 

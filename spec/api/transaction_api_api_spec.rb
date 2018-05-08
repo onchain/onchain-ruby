@@ -35,7 +35,7 @@ describe 'TransactionAPIApi' do
   describe 'create transaction test' do
     it "should create a transaction" do
       
-      tx = @instance.create('testnet3', 'mzYVx2FgY35SFkRNCSUxCGqd4UhXZ7eXmE', 'moQtPGgAPnMpN1jRoNsETEqfu1iP7VP3mV', 100000)
+      tx = @instance.create('testnet3', 'mzYVx2FgY35SFkRNCSUxCGqd4UhXZ7eXmE', '036f3972643ab052f9f77cbaf67f0e517180ac488453bde8cb27e9e3e1d6847d49', 100000)
       
       puts tx
       

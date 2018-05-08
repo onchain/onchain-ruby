@@ -17,6 +17,10 @@ module SwaggerClient
   class Signature
     attr_accessor :hash
 
+    attr_accessor :input_index
+
+    attr_accessor :public_key
+
     attr_accessor :signature
 
 
@@ -24,6 +28,8 @@ module SwaggerClient
     def self.attribute_map
       {
         :'hash' => :'hash',
+        :'input_index' => :'input_index',
+        :'public_key' => :'public_key',
         :'signature' => :'signature'
       }
     end
@@ -32,6 +38,8 @@ module SwaggerClient
     def self.swagger_types
       {
         :'hash' => :'String',
+        :'input_index' => :'Integer',
+        :'public_key' => :'String',
         :'signature' => :'String'
       }
     end
@@ -46,6 +54,14 @@ module SwaggerClient
 
       if attributes.has_key?(:'hash')
         self.hash = attributes[:'hash']
+      end
+
+      if attributes.has_key?(:'input_index')
+        self.input_index = attributes[:'input_index']
+      end
+
+      if attributes.has_key?(:'public_key')
+        self.public_key = attributes[:'public_key']
       end
 
       if attributes.has_key?(:'signature')
@@ -73,6 +89,8 @@ module SwaggerClient
       return true if self.equal?(o)
       self.class == o.class &&
           hash == o.hash &&
+          input_index == o.input_index &&
+          public_key == o.public_key &&
           signature == o.signature
     end
 
@@ -85,7 +103,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [hash, signature].hash
+      [hash, input_index, public_key, signature].hash
     end
 
     # Builds the object from hash

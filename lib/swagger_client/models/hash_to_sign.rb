@@ -15,28 +15,28 @@ require 'date'
 module SwaggerClient
 
   class HashToSign
-    attr_accessor :address
-
     attr_accessor :hash_to_sign
 
     attr_accessor :input_index
+
+    attr_accessor :public_key
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'address' => :'address',
         :'hash_to_sign' => :'hash_to_sign',
-        :'input_index' => :'input_index'
+        :'input_index' => :'input_index',
+        :'public_key' => :'public_key'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'address' => :'String',
         :'hash_to_sign' => :'String',
-        :'input_index' => :'Integer'
+        :'input_index' => :'Integer',
+        :'public_key' => :'String'
       }
     end
 
@@ -48,16 +48,16 @@ module SwaggerClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'address')
-        self.address = attributes[:'address']
-      end
-
       if attributes.has_key?(:'hash_to_sign')
         self.hash_to_sign = attributes[:'hash_to_sign']
       end
 
       if attributes.has_key?(:'input_index')
         self.input_index = attributes[:'input_index']
+      end
+
+      if attributes.has_key?(:'public_key')
+        self.public_key = attributes[:'public_key']
       end
 
     end
@@ -80,9 +80,9 @@ module SwaggerClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          address == o.address &&
           hash_to_sign == o.hash_to_sign &&
-          input_index == o.input_index
+          input_index == o.input_index &&
+          public_key == o.public_key
     end
 
     # @see the `==` method
@@ -94,7 +94,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [address, hash_to_sign, input_index].hash
+      [hash_to_sign, input_index, public_key].hash
     end
 
     # Builds the object from hash
