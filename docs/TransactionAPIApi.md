@@ -124,7 +124,7 @@ No authorization required
 
 
 # **sign_and_send**
-> InlineResponseDefault sign_and_send(coin, tx, signatures)
+> InlineResponseDefault sign_and_send(coin, tx, public_keys, signatures, hashes_to_sign, input_indexes)
 
 Sign and Send a Transaction
 
@@ -141,12 +141,18 @@ coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 tx = "tx_example" # String | The raw unsigned transaction as a hex string
 
-signatures = [SwaggerClient::Signature.new] # Array<Signature> | The list of hashes returned by the create API with the corresponding signatures from your private keys.
+public_keys = ["public_keys_example"] # Array<String> | The list of public keys we are signing for.
+
+signatures = ["signatures_example"] # Array<String> | The signatures generated for each.
+
+hashes_to_sign = ["hashes_to_sign_example"] # Array<String> | The list of hashes returned by the create API with the corresponding signatures from your private keys.
+
+input_indexes = [56] # Array<Integer> | The list of input indexes corresponding to the hashes and signatures.
 
 
 begin
   #Sign and Send a Transaction
-  result = api_instance.sign_and_send(coin, tx, signatures)
+  result = api_instance.sign_and_send(coin, tx, public_keys, signatures, hashes_to_sign, input_indexes)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling TransactionAPIApi->sign_and_send: #{e}"
@@ -159,7 +165,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| The name of the coin i.e. bitcoin | 
  **tx** | **String**| The raw unsigned transaction as a hex string | 
- **signatures** | [**Array&lt;Signature&gt;**](Signature.md)| The list of hashes returned by the create API with the corresponding signatures from your private keys. | 
+ **public_keys** | [**Array&lt;String&gt;**](String.md)| The list of public keys we are signing for. | 
+ **signatures** | [**Array&lt;String&gt;**](String.md)| The signatures generated for each. | 
+ **hashes_to_sign** | [**Array&lt;String&gt;**](String.md)| The list of hashes returned by the create API with the corresponding signatures from your private keys. | 
+ **input_indexes** | [**Array&lt;Integer&gt;**](Integer.md)| The list of input indexes corresponding to the hashes and signatures. | 
 
 ### Return type
 

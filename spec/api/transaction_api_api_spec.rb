@@ -42,6 +42,26 @@ describe 'TransactionAPIApi' do
     end
   end
   
+  describe 'sign and send a transaction' do
+    it "should create a transaction" do
+      
+      s = SwaggerClient::Signature.new({
+        :hash_to_sign => 'b20317facd9134a38a91575b21168b2a8235ef4953b71de1a844d4d810d02537',
+        :input_index => 0,
+        :signature => '304402202915d9763c944918712155522ed99d1f01d7998c349316b5ba2d75ac41bb3dae022033b4d5800d2c5f461abf42a967625f77f4e16933bf9fa81aa753c423687eee02',
+        :public_key => '036f3972643ab052f9f77cbaf67f0e517180ac488453bde8cb27e9e3e1d6847d49'
+      })
+      
+      tx = '0100000001c9d5426dcdec405cf28c166ccb0cf83ce8ca18bf003e5388246b717a479586f6010000001976a914569b3f1e217a8741f8ae8309b5dbd9d91f200d4688acffffffff03a0860100000000001976a914d0b53ad490c2074460a42be67276f013cf8e773d88ac801a0600000000001976a914e229651d1ea66dbdfc4ec59f1eb9394559c284c988ace0040700000000001976a914569b3f1e217a8741f8ae8309b5dbd9d91f200d4688ac00000000'
+      
+      result = @instance.sign_and_send('testnet3', tx, [s.public_key], 
+        [s.signature], [s.hash_to_sign], [s.input_index])
+      
+      puts result
+      
+    end
+  end
+  
   describe 'create transaction test' do
     it "should create a transaction" do
       

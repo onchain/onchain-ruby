@@ -15,7 +15,7 @@ require 'date'
 module SwaggerClient
 
   class Signature
-    attr_accessor :hash
+    attr_accessor :hash_to_sign
 
     attr_accessor :input_index
 
@@ -27,7 +27,7 @@ module SwaggerClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'hash' => :'hash',
+        :'hash_to_sign' => :'hash_to_sign',
         :'input_index' => :'input_index',
         :'public_key' => :'public_key',
         :'signature' => :'signature'
@@ -37,7 +37,7 @@ module SwaggerClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'hash' => :'String',
+        :'hash_to_sign' => :'String',
         :'input_index' => :'Integer',
         :'public_key' => :'String',
         :'signature' => :'String'
@@ -52,8 +52,8 @@ module SwaggerClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'hash')
-        self.hash = attributes[:'hash']
+      if attributes.has_key?(:'hash_to_sign')
+        self.hash_to_sign = attributes[:'hash_to_sign']
       end
 
       if attributes.has_key?(:'input_index')
@@ -88,7 +88,7 @@ module SwaggerClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          hash == o.hash &&
+          hash_to_sign == o.hash_to_sign &&
           input_index == o.input_index &&
           public_key == o.public_key &&
           signature == o.signature
@@ -103,7 +103,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [hash, input_index, public_key, signature].hash
+      [hash_to_sign, input_index, public_key, signature].hash
     end
 
     # Builds the object from hash
