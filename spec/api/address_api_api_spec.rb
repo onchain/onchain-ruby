@@ -31,6 +31,24 @@ describe 'AddressAPIApi' do
       expect(@instance).to be_instance_of(SwaggerClient::AddressAPIApi)
     end
   end
+  
+  describe 'get_balance ethereum test' do
+    it "should work" do
+      address_api = SwaggerClient::AddressAPIApi.new
+      bal =  address_api.get_balance('ethereum', '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6')
+      puts bal
+      puts bal.class
+    end
+  end
+  
+  describe 'get_all_balances ethereum test' do
+    it "should work" do
+      address_api = SwaggerClient::AddressAPIApi.new
+      bal =  address_api.get_balances('ethereum', '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6,0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6')
+      puts bal
+      puts bal.class
+    end
+  end
 
   # unit tests for get_balance
   # Get Balance
