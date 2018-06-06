@@ -81,6 +81,8 @@ Class | Method | HTTP request | Description
 *SwaggerClient::AddressAPIApi* | [**get_balances**](docs/AddressAPIApi.md#get_balances) | **GET** /address/balances/{coin}/{addresses} | Get Balances
 *SwaggerClient::AddressAPIApi* | [**get_history**](docs/AddressAPIApi.md#get_history) | **GET** /address/history/{coin}/{addresses} | Get History
 *SwaggerClient::AddressAPIApi* | [**get_unspent**](docs/AddressAPIApi.md#get_unspent) | **GET** /address/utxo/{coin}/{addresses} | Get Unspent Outs
+*SwaggerClient::EthereumAPIApi* | [**create**](docs/EthereumAPIApi.md#create) | **POST** /ethereum/create/ | Create Unsigned Transaction
+*SwaggerClient::EthereumAPIApi* | [**create_0**](docs/EthereumAPIApi.md#create_0) | **POST** /ethereum/sign_and_send/ | Sign and send transaction.
 *SwaggerClient::TransactionAPIApi* | [**create**](docs/TransactionAPIApi.md#create) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
 *SwaggerClient::TransactionAPIApi* | [**send_raw**](docs/TransactionAPIApi.md#send_raw) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
 *SwaggerClient::TransactionAPIApi* | [**sign_and_send**](docs/TransactionAPIApi.md#sign_and_send) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
@@ -92,6 +94,7 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::Balance](docs/Balance.md)
  - [SwaggerClient::Balances](docs/Balances.md)
  - [SwaggerClient::Coin](docs/Coin.md)
+ - [SwaggerClient::EthereumToSign](docs/EthereumToSign.md)
  - [SwaggerClient::HashToSign](docs/HashToSign.md)
  - [SwaggerClient::HashesToSign](docs/HashesToSign.md)
  - [SwaggerClient::History](docs/History.md)

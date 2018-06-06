@@ -21,6 +21,7 @@ require 'swagger_client/models/addr_balance'
 require 'swagger_client/models/balance'
 require 'swagger_client/models/balances'
 require 'swagger_client/models/coin'
+require 'swagger_client/models/ethereum_to_sign'
 require 'swagger_client/models/hash_to_sign'
 require 'swagger_client/models/hashes_to_sign'
 require 'swagger_client/models/history'
@@ -33,6 +34,7 @@ require 'swagger_client/models/vouts'
 
 # APIs
 require 'swagger_client/api/address_api_api'
+require 'swagger_client/api/ethereum_api_api'
 require 'swagger_client/api/transaction_api_api'
 
 module SwaggerClient
