@@ -5,7 +5,7 @@ All URIs are relative to *https://onchain.io/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create**](EthereumAPIApi.md#create) | **POST** /ethereum/create/ | Create Unsigned Transaction
-[**create_0**](EthereumAPIApi.md#create_0) | **POST** /ethereum/sign_and_send/ | Sign and send transaction.
+[**sign_and_send**](EthereumAPIApi.md#sign_and_send) | **POST** /ethereum/sign_and_send/ | Sign and send transaction.
 
 
 # **create**
@@ -67,8 +67,8 @@ No authorization required
 
 
 
-# **create_0**
-> EthereumToSign create_0(to, from, amount, r, s, v, opts)
+# **sign_and_send**
+> EthereumToSign sign_and_send(to, from, amount, r, s, v, opts)
 
 Sign and send transaction.
 
@@ -100,10 +100,10 @@ opts = {
 
 begin
   #Sign and send transaction.
-  result = api_instance.create_0(to, from, amount, r, s, v, opts)
+  result = api_instance.sign_and_send(to, from, amount, r, s, v, opts)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling EthereumAPIApi->create_0: #{e}"
+  puts "Exception when calling EthereumAPIApi->sign_and_send: #{e}"
 end
 ```
 

@@ -106,8 +106,8 @@ module SwaggerClient
     # @option opts [Integer] :gas_price The gas price to pay.
     # @option opts [Integer] :gas_limit The gas limit to use.
     # @return [EthereumToSign]
-    def create_0(to, from, amount, r, s, v, opts = {})
-      data, _status_code, _headers = create_0_with_http_info(to, from, amount, r, s, v, opts)
+    def sign_and_send(to, from, amount, r, s, v, opts = {})
+      data, _status_code, _headers = sign_and_send_with_http_info(to, from, amount, r, s, v, opts)
       return data
     end
 
@@ -123,33 +123,33 @@ module SwaggerClient
     # @option opts [Integer] :gas_price The gas price to pay.
     # @option opts [Integer] :gas_limit The gas limit to use.
     # @return [Array<(EthereumToSign, Fixnum, Hash)>] EthereumToSign data, response status code and response headers
-    def create_0_with_http_info(to, from, amount, r, s, v, opts = {})
+    def sign_and_send_with_http_info(to, from, amount, r, s, v, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: EthereumAPIApi.create_0 ..."
+        @api_client.config.logger.debug "Calling API: EthereumAPIApi.sign_and_send ..."
       end
       # verify the required parameter 'to' is set
       if @api_client.config.client_side_validation && to.nil?
-        fail ArgumentError, "Missing the required parameter 'to' when calling EthereumAPIApi.create_0"
+        fail ArgumentError, "Missing the required parameter 'to' when calling EthereumAPIApi.sign_and_send"
       end
       # verify the required parameter 'from' is set
       if @api_client.config.client_side_validation && from.nil?
-        fail ArgumentError, "Missing the required parameter 'from' when calling EthereumAPIApi.create_0"
+        fail ArgumentError, "Missing the required parameter 'from' when calling EthereumAPIApi.sign_and_send"
       end
       # verify the required parameter 'amount' is set
       if @api_client.config.client_side_validation && amount.nil?
-        fail ArgumentError, "Missing the required parameter 'amount' when calling EthereumAPIApi.create_0"
+        fail ArgumentError, "Missing the required parameter 'amount' when calling EthereumAPIApi.sign_and_send"
       end
       # verify the required parameter 'r' is set
       if @api_client.config.client_side_validation && r.nil?
-        fail ArgumentError, "Missing the required parameter 'r' when calling EthereumAPIApi.create_0"
+        fail ArgumentError, "Missing the required parameter 'r' when calling EthereumAPIApi.sign_and_send"
       end
       # verify the required parameter 's' is set
       if @api_client.config.client_side_validation && s.nil?
-        fail ArgumentError, "Missing the required parameter 's' when calling EthereumAPIApi.create_0"
+        fail ArgumentError, "Missing the required parameter 's' when calling EthereumAPIApi.sign_and_send"
       end
       # verify the required parameter 'v' is set
       if @api_client.config.client_side_validation && v.nil?
-        fail ArgumentError, "Missing the required parameter 'v' when calling EthereumAPIApi.create_0"
+        fail ArgumentError, "Missing the required parameter 'v' when calling EthereumAPIApi.sign_and_send"
       end
       # resource path
       local_var_path = "/ethereum/sign_and_send/"
@@ -184,7 +184,7 @@ module SwaggerClient
         :auth_names => auth_names,
         :return_type => 'EthereumToSign')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EthereumAPIApi#create_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EthereumAPIApi#sign_and_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
