@@ -44,4 +44,16 @@ describe 'TransactionAPIApi' do
     end
   end
 
+  describe 'sign an ethereum transaction' do
+    it "should sign an ethereum transaction" do
+      
+      result = @instance.sign_and_send('0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
+        '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
+        100000, 'xxx', 12,4)
+      
+      puts result
+      
+    end
+  end
+
 end
