@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hash** | **String** |  | [optional] 
+**hash_to_sign** | **String** |  | [optional] 
 **tx** | **String** |  | [optional] 
 
 
