@@ -68,7 +68,7 @@ No authorization required
 
 
 # **sign_and_send**
-> EthereumToSign sign_and_send(to, from, amount, r, s, v, opts)
+> InlineResponseDefault sign_and_send(to, from, amount, r, s, v, opts)
 
 Sign and send transaction.
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EthereumToSign**](EthereumToSign.md)
+[**InlineResponseDefault**](InlineResponseDefault.md)
 
 ### Authorization
 

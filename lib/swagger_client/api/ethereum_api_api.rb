@@ -105,7 +105,7 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :gas_price The gas price to pay.
     # @option opts [Integer] :gas_limit The gas limit to use.
-    # @return [EthereumToSign]
+    # @return [InlineResponseDefault]
     def sign_and_send(to, from, amount, r, s, v, opts = {})
       data, _status_code, _headers = sign_and_send_with_http_info(to, from, amount, r, s, v, opts)
       return data
@@ -122,7 +122,7 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :gas_price The gas price to pay.
     # @option opts [Integer] :gas_limit The gas limit to use.
-    # @return [Array<(EthereumToSign, Fixnum, Hash)>] EthereumToSign data, response status code and response headers
+    # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
     def sign_and_send_with_http_info(to, from, amount, r, s, v, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EthereumAPIApi.sign_and_send ..."
@@ -182,7 +182,7 @@ module SwaggerClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'EthereumToSign')
+        :return_type => 'InlineResponseDefault')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EthereumAPIApi#sign_and_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
