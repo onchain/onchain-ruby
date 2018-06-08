@@ -49,7 +49,8 @@ describe 'TransactionAPIApi' do
       
       result = @instance.sign_and_send('0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
         '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
-        100000, 'xxx', 12,4)
+        100000, '56182368f51dce92754fcc34ba5f7b61140e45208632f145cf9ec087a600a3a8', 
+        '30a8220c206ccf565720315ff2e56c6ffc202c1d5a29afa479b7ea51cb1eb845' , 27)
       
       puts result
       

@@ -34,6 +34,7 @@ require 'swagger_client/models/vouts'
 
 # APIs
 require 'swagger_client/api/address_api_api'
+require 'swagger_client/api/erc20_api'
 require 'swagger_client/api/ethereum_api_api'
 require 'swagger_client/api/transaction_api_api'
 

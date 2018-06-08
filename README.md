@@ -60,10 +60,14 @@ coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 address = "address_example" # String | The public address to lookup
 
+opts = { 
+  contract_id: "6.058968844090876E47", # String | The contract ID of the ERC20 token.
+  decimal_places: 18 # Integer | The number of decimal places for this contract.
+}
 
 begin
   #Get Balance
-  result = api_instance.get_balance(coin, address)
+  result = api_instance.get_balance(coin, address, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling AddressAPIApi->get_balance: #{e}"
@@ -81,6 +85,8 @@ Class | Method | HTTP request | Description
 *SwaggerClient::AddressAPIApi* | [**get_balances**](docs/AddressAPIApi.md#get_balances) | **GET** /address/balances/{coin}/{addresses} | Get Balances
 *SwaggerClient::AddressAPIApi* | [**get_history**](docs/AddressAPIApi.md#get_history) | **GET** /address/history/{coin}/{addresses} | Get History
 *SwaggerClient::AddressAPIApi* | [**get_unspent**](docs/AddressAPIApi.md#get_unspent) | **GET** /address/utxo/{coin}/{addresses} | Get Unspent Outs
+*SwaggerClient::ERC20Api* | [**create**](docs/ERC20Api.md#create) | **POST** /erc20/create/ | Create Unsigned Transaction
+*SwaggerClient::ERC20Api* | [**sign_and_send**](docs/ERC20Api.md#sign_and_send) | **POST** /erc20/sign_and_send/ | Sign and send transaction.
 *SwaggerClient::EthereumAPIApi* | [**create**](docs/EthereumAPIApi.md#create) | **POST** /ethereum/create/ | Create Unsigned Transaction
 *SwaggerClient::EthereumAPIApi* | [**sign_and_send**](docs/EthereumAPIApi.md#sign_and_send) | **POST** /ethereum/sign_and_send/ | Sign and send transaction.
 *SwaggerClient::TransactionAPIApi* | [**create**](docs/TransactionAPIApi.md#create) | **POST** /transaction/create/{coin} | Create Unsigned Transaction

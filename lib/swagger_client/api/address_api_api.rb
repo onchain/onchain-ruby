@@ -21,10 +21,12 @@ module SwaggerClient
     end
 
     # Get Balance
-    # Returns the satoshi balance, usd balance and user viewable balance for an address
+    # Returns the satoshi balance, usd balance and user viewable balance for an address. For ERC20 tokens you need to pass in the contract ID and the number of decimal places.
     # @param coin The name of the coin i.e. bitcoin
     # @param address The public address to lookup
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :contract_id The contract ID of the ERC20 token.
+    # @option opts [Integer] :decimal_places The number of decimal places for this contract.
     # @return [Balance]
     def get_balance(coin, address, opts = {})
       data, _status_code, _headers = get_balance_with_http_info(coin, address, opts)
@@ -32,10 +34,12 @@ module SwaggerClient
     end
 
     # Get Balance
-    # Returns the satoshi balance, usd balance and user viewable balance for an address
+    # Returns the satoshi balance, usd balance and user viewable balance for an address. For ERC20 tokens you need to pass in the contract ID and the number of decimal places.
     # @param coin The name of the coin i.e. bitcoin
     # @param address The public address to lookup
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :contract_id The contract ID of the ERC20 token.
+    # @option opts [Integer] :decimal_places The number of decimal places for this contract.
     # @return [Array<(Balance, Fixnum, Hash)>] Balance data, response status code and response headers
     def get_balance_with_http_info(coin, address, opts = {})
       if @api_client.config.debugging
@@ -54,6 +58,8 @@ module SwaggerClient
 
       # query parameters
       query_params = {}
+      query_params[:'contract_id'] = opts[:'contract_id'] if !opts[:'contract_id'].nil?
+      query_params[:'decimal_places'] = opts[:'decimal_places'] if !opts[:'decimal_places'].nil?
 
       # header parameters
       header_params = {}
@@ -84,6 +90,8 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param addresses A comma seperated list of public addresses
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :contract_id The contract ID of the ERC20 token.
+    # @option opts [Integer] :decimal_places The number of decimal places for this contract.
     # @return [Balances]
     def get_balances(coin, addresses, opts = {})
       data, _status_code, _headers = get_balances_with_http_info(coin, addresses, opts)
@@ -95,6 +103,8 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param addresses A comma seperated list of public addresses
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :contract_id The contract ID of the ERC20 token.
+    # @option opts [Integer] :decimal_places The number of decimal places for this contract.
     # @return [Array<(Balances, Fixnum, Hash)>] Balances data, response status code and response headers
     def get_balances_with_http_info(coin, addresses, opts = {})
       if @api_client.config.debugging
@@ -113,6 +123,8 @@ module SwaggerClient
 
       # query parameters
       query_params = {}
+      query_params[:'contract_id'] = opts[:'contract_id'] if !opts[:'contract_id'].nil?
+      query_params[:'decimal_places'] = opts[:'decimal_places'] if !opts[:'decimal_places'].nil?
 
       # header parameters
       header_params = {}
@@ -143,6 +155,8 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param addresses A comma seperated list of public addresses
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :contract_id The contract ID of the ERC20 token.
+    # @option opts [Integer] :decimal_places The number of decimal places for this contract.
     # @return [History]
     def get_history(coin, addresses, opts = {})
       data, _status_code, _headers = get_history_with_http_info(coin, addresses, opts)
@@ -154,6 +168,8 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param addresses A comma seperated list of public addresses
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :contract_id The contract ID of the ERC20 token.
+    # @option opts [Integer] :decimal_places The number of decimal places for this contract.
     # @return [Array<(History, Fixnum, Hash)>] History data, response status code and response headers
     def get_history_with_http_info(coin, addresses, opts = {})
       if @api_client.config.debugging
@@ -172,6 +188,8 @@ module SwaggerClient
 
       # query parameters
       query_params = {}
+      query_params[:'contract_id'] = opts[:'contract_id'] if !opts[:'contract_id'].nil?
+      query_params[:'decimal_places'] = opts[:'decimal_places'] if !opts[:'decimal_places'].nil?
 
       # header parameters
       header_params = {}

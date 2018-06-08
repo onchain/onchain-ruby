@@ -11,11 +11,11 @@ Method | HTTP request | Description
 
 
 # **get_balance**
-> Balance get_balance(coin, address)
+> Balance get_balance(coin, address, opts)
 
 Get Balance
 
-Returns the satoshi balance, usd balance and user viewable balance for an address
+Returns the satoshi balance, usd balance and user viewable balance for an address. For ERC20 tokens you need to pass in the contract ID and the number of decimal places.
 
 ### Example
 ```ruby
@@ -28,10 +28,14 @@ coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 address = "address_example" # String | The public address to lookup
 
+opts = { 
+  contract_id: "6.058968844090876E47", # String | The contract ID of the ERC20 token.
+  decimal_places: 18 # Integer | The number of decimal places for this contract.
+}
 
 begin
   #Get Balance
-  result = api_instance.get_balance(coin, address)
+  result = api_instance.get_balance(coin, address, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling AddressAPIApi->get_balance: #{e}"
@@ -44,6 +48,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| The name of the coin i.e. bitcoin | 
  **address** | **String**| The public address to lookup | 
+ **contract_id** | **String**| The contract ID of the ERC20 token. | [optional] 
+ **decimal_places** | **Integer**| The number of decimal places for this contract. | [optional] 
 
 ### Return type
 
@@ -61,7 +67,7 @@ No authorization required
 
 
 # **get_balances**
-> Balances get_balances(coin, addresses)
+> Balances get_balances(coin, addresses, opts)
 
 Get Balances
 
@@ -78,10 +84,14 @@ coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 addresses = "addresses_example" # String | A comma seperated list of public addresses
 
+opts = { 
+  contract_id: "6.058968844090876E47", # String | The contract ID of the ERC20 token.
+  decimal_places: 18 # Integer | The number of decimal places for this contract.
+}
 
 begin
   #Get Balances
-  result = api_instance.get_balances(coin, addresses)
+  result = api_instance.get_balances(coin, addresses, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling AddressAPIApi->get_balances: #{e}"
@@ -94,6 +104,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| The name of the coin i.e. bitcoin | 
  **addresses** | **String**| A comma seperated list of public addresses | 
+ **contract_id** | **String**| The contract ID of the ERC20 token. | [optional] 
+ **decimal_places** | **Integer**| The number of decimal places for this contract. | [optional] 
 
 ### Return type
 
@@ -111,7 +123,7 @@ No authorization required
 
 
 # **get_history**
-> History get_history(coin, addresses)
+> History get_history(coin, addresses, opts)
 
 Get History
 
@@ -128,10 +140,14 @@ coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
 
 addresses = "addresses_example" # String | A comma seperated list of public addresses
 
+opts = { 
+  contract_id: "6.058968844090876E47", # String | The contract ID of the ERC20 token.
+  decimal_places: 18 # Integer | The number of decimal places for this contract.
+}
 
 begin
   #Get History
-  result = api_instance.get_history(coin, addresses)
+  result = api_instance.get_history(coin, addresses, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling AddressAPIApi->get_history: #{e}"
@@ -144,6 +160,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| The name of the coin i.e. bitcoin | 
  **addresses** | **String**| A comma seperated list of public addresses | 
+ **contract_id** | **String**| The contract ID of the ERC20 token. | [optional] 
+ **decimal_places** | **Integer**| The number of decimal places for this contract. | [optional] 
 
 ### Return type
 
