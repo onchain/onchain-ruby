@@ -31,6 +31,20 @@ describe 'AddressAPIApi' do
       expect(@instance).to be_instance_of(SwaggerClient::AddressAPIApi)
     end
   end
+
+  describe 'get erc20 balance' do
+    it "should get a token balance" do
+      
+      opts = {
+        :contract_id => "0x1175a66a5c3343bbf06aa818bb482ddec30858e0",
+        :decimal_places => 18
+      }
+      
+      bal =  @instance.get_balances('ethereum', '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6,0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', opts)
+      
+      puts bal
+    end
+  end
   
   describe 'get_balance ethereum test' do
     it "should work" do

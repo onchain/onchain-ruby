@@ -21,6 +21,7 @@ module SwaggerClient
     ETHEREUM = "ethereum".freeze
     BITCOIN_PRIVATE = "bitcoin_private".freeze
     BITCOIN_GOLD = "bitcoin_gold".freeze
+    BITCOIN_CASH = "bitcoin_cash".freeze
     DASH = "dash".freeze
     ZCASH = "zcash".freeze
     ZCLASSIC = "zclassic".freeze

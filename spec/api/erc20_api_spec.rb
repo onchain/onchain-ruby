@@ -26,32 +26,54 @@ describe 'ERC20Api' do
     # run after each test
   end
 
-  describe 'test an instance of TransactionAPIApi' do
-    it 'should create an instance of TransactionAPIApi' do
+  describe 'test an instance of ERC20Api' do
+    it 'should create an instance of ERC20Api' do
       expect(@instance).to be_instance_of(SwaggerClient::ERC20Api)
     end
   end
 
-  describe 'create an ethereum transaction' do
-    it "should create an ethereum transaction" do
+  describe 'create an erc20 transaction' do
+    it "should create an erc20 transaction" do
       
-      tx = @instance.create('0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
+      opts = {
+        :gas_price => 10_000_000_000,
+        :gas_limit => 78046
+      }
+      
+      tx = @instance.create('0xD61C98F88d0a6156e9A7775abF9c1c751658A045', 
         '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
-        1, '0x1175a66a5c3343bbf06aa818bb482ddec30858e0', 18)
+        1, '0x1175a66a5c3343bbf06aa818bb482ddec30858e0', 18, opts)
       
-      puts tx
+      # OnChain::Ethereum.create_token_transfer(
+      # '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
+      #'0xD61C98F88d0a6156e9A7775abF9c1c751658A045', 
+      #'0x1175a66a5c3343bbf06aa818bb482ddec30858e0', 1, 18)
+      puts tx.hash_to_sign
       
+      puts tx.tx
     end
   end
 
-  describe 'sign an ethereum transaction' do
-    it "should sign an ethereum transaction" do
+  describe 'sign an erc20 transaction' do
+    it "should sign an erc20 transaction" do
       
-      result = @instance.sign_and_send('0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
+      # OnChain::Ethereum.finish_token_transfer('0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', '0xD61C98F88d0a6156e9A7775abF9c1c751658A045', '0x1175a66a5c3343bbf06aa818bb482ddec30858e0', 1, 18, 'fe9392ed9a3e63a6b1f7de5c695c22e26e4ba20e22f9566e62d9ac75356f17e5', '1594ae60c1ee4df1d62a093849c2d7e9fda05c944f23dfe8b8419c2e1b801e72', 28)
+      
+      opts = {
+        :gas_price => 10_000_000_000,
+        :gas_limit => 78046
+      }
+      
+      sig_generated_by_old_code = "7687620a5a8e064c55c93e59b8dc2de1c0a1848e1a64526bbf23a037ba1a9025:12800a54bc8f9010b0b83dd8a98540e6243d0e3ad8b6aba1e10eb52033909a77:28"
+
+      r = sig_generated_by_old_code.split(':')[0]
+      s = sig_generated_by_old_code.split(':')[1]
+      v = sig_generated_by_old_code.split(':')[2].to_i
+      
+      result = @instance.sign_and_send('0xD61C98F88d0a6156e9A7775abF9c1c751658A045', 
         '0x46FC2341DC457BA023cF6d60Cb0729E5928A81E6', 
         1, '0x1175a66a5c3343bbf06aa818bb482ddec30858e0', 18, 
-        '56182368f51dce92754fcc34ba5f7b61140e45208632f145cf9ec087a600a3a8', 
-        '30a8220c206ccf565720315ff2e56c6ffc202c1d5a29afa479b7ea51cb1eb845' , 27)
+        r, s, v, opts)
       
       puts result
       
