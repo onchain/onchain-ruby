@@ -32,6 +32,15 @@ describe 'AddressAPIApi' do
     end
   end
 
+  describe 'get an address history' do
+    it "should get a token balance" do
+      
+      hist =  @instance.get_history('bitcoin', '16KBLs5NVpUcrhmcC7eifHuSJjKLufApak')
+      
+      puts hist
+    end
+  end
+
   describe 'get erc20 balance' do
     it "should get a token balance" do
       

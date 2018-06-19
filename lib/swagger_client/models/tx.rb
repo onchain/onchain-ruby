@@ -15,44 +15,40 @@ require 'date'
 module SwaggerClient
 
   class Tx
-    attr_accessor :blockheight
+    attr_accessor :address
 
-    attr_accessor :fees
+    attr_accessor :amount
+
+    attr_accessor :confirmations
+
+    attr_accessor :human_amount
+
+    attr_accessor :is_deposit
 
     attr_accessor :time
-
-    attr_accessor :total_in
-
-    attr_accessor :total_out
-
-    attr_accessor :vins
-
-    attr_accessor :vouts
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'blockheight' => :'blockheight',
-        :'fees' => :'fees',
-        :'time' => :'time',
-        :'total_in' => :'total_in',
-        :'total_out' => :'total_out',
-        :'vins' => :'vins',
-        :'vouts' => :'vouts'
+        :'address' => :'address',
+        :'amount' => :'amount',
+        :'confirmations' => :'confirmations',
+        :'human_amount' => :'human_amount',
+        :'is_deposit' => :'is_deposit',
+        :'time' => :'time'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'blockheight' => :'Integer',
-        :'fees' => :'Integer',
-        :'time' => :'Integer',
-        :'total_in' => :'Integer',
-        :'total_out' => :'Integer',
-        :'vins' => :'Array<Vins>',
-        :'vouts' => :'Array<Vouts>'
+        :'address' => :'String',
+        :'amount' => :'Integer',
+        :'confirmations' => :'Integer',
+        :'human_amount' => :'Float',
+        :'is_deposit' => :'BOOLEAN',
+        :'time' => :'Integer'
       }
     end
 
@@ -64,36 +60,28 @@ module SwaggerClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'blockheight')
-        self.blockheight = attributes[:'blockheight']
+      if attributes.has_key?(:'address')
+        self.address = attributes[:'address']
       end
 
-      if attributes.has_key?(:'fees')
-        self.fees = attributes[:'fees']
+      if attributes.has_key?(:'amount')
+        self.amount = attributes[:'amount']
+      end
+
+      if attributes.has_key?(:'confirmations')
+        self.confirmations = attributes[:'confirmations']
+      end
+
+      if attributes.has_key?(:'human_amount')
+        self.human_amount = attributes[:'human_amount']
+      end
+
+      if attributes.has_key?(:'is_deposit')
+        self.is_deposit = attributes[:'is_deposit']
       end
 
       if attributes.has_key?(:'time')
         self.time = attributes[:'time']
-      end
-
-      if attributes.has_key?(:'total_in')
-        self.total_in = attributes[:'total_in']
-      end
-
-      if attributes.has_key?(:'total_out')
-        self.total_out = attributes[:'total_out']
-      end
-
-      if attributes.has_key?(:'vins')
-        if (value = attributes[:'vins']).is_a?(Array)
-          self.vins = value
-        end
-      end
-
-      if attributes.has_key?(:'vouts')
-        if (value = attributes[:'vouts']).is_a?(Array)
-          self.vouts = value
-        end
       end
 
     end
@@ -116,13 +104,12 @@ module SwaggerClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          blockheight == o.blockheight &&
-          fees == o.fees &&
-          time == o.time &&
-          total_in == o.total_in &&
-          total_out == o.total_out &&
-          vins == o.vins &&
-          vouts == o.vouts
+          address == o.address &&
+          amount == o.amount &&
+          confirmations == o.confirmations &&
+          human_amount == o.human_amount &&
+          is_deposit == o.is_deposit &&
+          time == o.time
     end
 
     # @see the `==` method
@@ -134,7 +121,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [blockheight, fees, time, total_in, total_out, vins, vouts].hash
+      [address, amount, confirmations, human_amount, is_deposit, time].hash
     end
 
     # Builds the object from hash

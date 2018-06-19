@@ -29,8 +29,6 @@ require 'swagger_client/models/inline_response_default'
 require 'swagger_client/models/signature'
 require 'swagger_client/models/tx'
 require 'swagger_client/models/utxo'
-require 'swagger_client/models/vins'
-require 'swagger_client/models/vouts'
 
 # APIs
 require 'swagger_client/api/address_api_api'

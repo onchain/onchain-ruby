@@ -108,8 +108,6 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::Signature](docs/Signature.md)
  - [SwaggerClient::Tx](docs/Tx.md)
  - [SwaggerClient::Utxo](docs/Utxo.md)
- - [SwaggerClient::Vins](docs/Vins.md)
- - [SwaggerClient::Vouts](docs/Vouts.md)
 
 
 ## Documentation for Authorization
