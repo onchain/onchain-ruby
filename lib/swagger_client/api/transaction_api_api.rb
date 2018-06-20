@@ -166,29 +166,21 @@ module SwaggerClient
     # Sign and Send a Transaction
     # Sign and send transaction onto the network.
     # @param coin The name of the coin i.e. bitcoin
-    # @param tx The raw unsigned transaction as a hex string
-    # @param public_keys The list of public keys we are signing for.
-    # @param signatures The signatures generated for each.
-    # @param hashes_to_sign The list of hashes returned by the create API with the corresponding signatures from your private keys.
-    # @param input_indexes The list of input indexes corresponding to the hashes and signatures.
+    # @param body 
     # @param [Hash] opts the optional parameters
     # @return [InlineResponseDefault]
-    def sign_and_send(coin, tx, public_keys, signatures, hashes_to_sign, input_indexes, opts = {})
-      data, _status_code, _headers = sign_and_send_with_http_info(coin, tx, public_keys, signatures, hashes_to_sign, input_indexes, opts)
+    def sign_and_send(coin, body, opts = {})
+      data, _status_code, _headers = sign_and_send_with_http_info(coin, body, opts)
       return data
     end
 
     # Sign and Send a Transaction
     # Sign and send transaction onto the network.
     # @param coin The name of the coin i.e. bitcoin
-    # @param tx The raw unsigned transaction as a hex string
-    # @param public_keys The list of public keys we are signing for.
-    # @param signatures The signatures generated for each.
-    # @param hashes_to_sign The list of hashes returned by the create API with the corresponding signatures from your private keys.
-    # @param input_indexes The list of input indexes corresponding to the hashes and signatures.
+    # @param body 
     # @param [Hash] opts the optional parameters
     # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
-    def sign_and_send_with_http_info(coin, tx, public_keys, signatures, hashes_to_sign, input_indexes, opts = {})
+    def sign_and_send_with_http_info(coin, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: TransactionAPIApi.sign_and_send ..."
       end
@@ -196,47 +188,29 @@ module SwaggerClient
       if @api_client.config.client_side_validation && coin.nil?
         fail ArgumentError, "Missing the required parameter 'coin' when calling TransactionAPIApi.sign_and_send"
       end
-      # verify the required parameter 'tx' is set
-      if @api_client.config.client_side_validation && tx.nil?
-        fail ArgumentError, "Missing the required parameter 'tx' when calling TransactionAPIApi.sign_and_send"
-      end
-      # verify the required parameter 'public_keys' is set
-      if @api_client.config.client_side_validation && public_keys.nil?
-        fail ArgumentError, "Missing the required parameter 'public_keys' when calling TransactionAPIApi.sign_and_send"
-      end
-      # verify the required parameter 'signatures' is set
-      if @api_client.config.client_side_validation && signatures.nil?
-        fail ArgumentError, "Missing the required parameter 'signatures' when calling TransactionAPIApi.sign_and_send"
-      end
-      # verify the required parameter 'hashes_to_sign' is set
-      if @api_client.config.client_side_validation && hashes_to_sign.nil?
-        fail ArgumentError, "Missing the required parameter 'hashes_to_sign' when calling TransactionAPIApi.sign_and_send"
-      end
-      # verify the required parameter 'input_indexes' is set
-      if @api_client.config.client_side_validation && input_indexes.nil?
-        fail ArgumentError, "Missing the required parameter 'input_indexes' when calling TransactionAPIApi.sign_and_send"
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling TransactionAPIApi.sign_and_send"
       end
       # resource path
       local_var_path = "/transaction/sign_and_send/{coin}".sub('{' + 'coin' + '}', coin.to_s)
 
       # query parameters
       query_params = {}
-      query_params[:'tx'] = tx
-      query_params[:'public_keys'] = @api_client.build_collection_param(public_keys, :csv)
-      query_params[:'signatures'] = @api_client.build_collection_param(signatures, :csv)
-      query_params[:'hashes_to_sign'] = @api_client.build_collection_param(hashes_to_sign, :csv)
-      query_params[:'input_indexes'] = @api_client.build_collection_param(input_indexes, :csv)
 
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(body)
+      
       auth_names = []
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

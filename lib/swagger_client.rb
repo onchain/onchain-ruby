@@ -27,6 +27,7 @@ require 'swagger_client/models/hashes_to_sign'
 require 'swagger_client/models/history'
 require 'swagger_client/models/inline_response_default'
 require 'swagger_client/models/signature'
+require 'swagger_client/models/signatures'
 require 'swagger_client/models/tx'
 require 'swagger_client/models/utxo'
 

@@ -52,10 +52,12 @@ describe 'TransactionAPIApi' do
         :public_key => '036f3972643ab052f9f77cbaf67f0e517180ac488453bde8cb27e9e3e1d6847d49'
       })
       
+      
       tx = '0100000001c9d5426dcdec405cf28c166ccb0cf83ce8ca18bf003e5388246b717a479586f6010000001976a914569b3f1e217a8741f8ae8309b5dbd9d91f200d4688acffffffff03a0860100000000001976a914d0b53ad490c2074460a42be67276f013cf8e773d88ac801a0600000000001976a914e229651d1ea66dbdfc4ec59f1eb9394559c284c988ace0040700000000001976a914569b3f1e217a8741f8ae8309b5dbd9d91f200d4688ac00000000'
       
-      result = @instance.sign_and_send('testnet3', tx, [s.public_key], 
-        [s.signature], [s.hash_to_sign], [s.input_index])
+      sigs = SwaggerClient::Signatures.new({ :tx => tx, :signatures => [s] })
+      
+      result = @instance.sign_and_send('testnet3', sigs)
       
       puts result
       

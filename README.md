@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::History](docs/History.md)
  - [SwaggerClient::InlineResponseDefault](docs/InlineResponseDefault.md)
  - [SwaggerClient::Signature](docs/Signature.md)
+ - [SwaggerClient::Signatures](docs/Signatures.md)
  - [SwaggerClient::Tx](docs/Tx.md)
  - [SwaggerClient::Utxo](docs/Utxo.md)
 
