@@ -17,6 +17,8 @@ module SwaggerClient
   class HashesToSign
     attr_accessor :hashes
 
+    attr_accessor :total_input_value
+
     attr_accessor :tx
 
 
@@ -24,6 +26,7 @@ module SwaggerClient
     def self.attribute_map
       {
         :'hashes' => :'hashes',
+        :'total_input_value' => :'total_input_value',
         :'tx' => :'tx'
       }
     end
@@ -32,6 +35,7 @@ module SwaggerClient
     def self.swagger_types
       {
         :'hashes' => :'Array<HashToSign>',
+        :'total_input_value' => :'Integer',
         :'tx' => :'String'
       }
     end
@@ -48,6 +52,10 @@ module SwaggerClient
         if (value = attributes[:'hashes']).is_a?(Array)
           self.hashes = value
         end
+      end
+
+      if attributes.has_key?(:'total_input_value')
+        self.total_input_value = attributes[:'total_input_value']
       end
 
       if attributes.has_key?(:'tx')
@@ -75,6 +83,7 @@ module SwaggerClient
       return true if self.equal?(o)
       self.class == o.class &&
           hashes == o.hashes &&
+          total_input_value == o.total_input_value &&
           tx == o.tx
     end
 
@@ -87,7 +96,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [hashes, tx].hash
+      [hashes, total_input_value, tx].hash
     end
 
     # Builds the object from hash

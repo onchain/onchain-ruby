@@ -210,7 +210,6 @@ module SwaggerClient
 
       # http body (model)
       post_body = @api_client.object_to_http_body(body)
-      
       auth_names = []
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
