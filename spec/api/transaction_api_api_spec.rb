@@ -41,6 +41,23 @@ describe 'TransactionAPIApi' do
       
     end
   end
+
+  describe 'create transaction zcash' do
+    it "should create a transaction" do
+      
+      opts = {
+          :fee_address =>'t1aZLWNcFHR3apVoMuAPzEjGbdbR2qGfcAw',
+          :fee_amount => (0.004 * 100_000_000.0).to_i
+      }
+      
+      tx = @instance.create('zcash', 't1coURaGEsTgaG6Jp8Y2rA2sUppakecfJKC', 
+        '028f883177988f212f2f1b89bc0aa1fb0683899c3665b62167b0daa998018f85d7', 
+        100000, opts)
+      
+      puts tx
+      
+    end
+  end
   
   describe 'sign and send a transaction' do
     it "should create a transaction" do

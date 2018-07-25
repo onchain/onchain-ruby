@@ -1,5 +1,5 @@
 # Update this folder with the latest generated code
-content=$(wget https://onchain.io/api-docs -q -O -)
+content=$(wget https://onchain.io/assets/api-docs -q -O -)
 location=$(echo $content | grep -Po '(?<=href=")[^"]*' | grep swagger | sed -e "s/\/\//\//")
 echo $location
 swagger='{"swaggerUrl":"https://onchain.io'$location'"}'

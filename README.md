@@ -92,6 +92,8 @@ Class | Method | HTTP request | Description
 *SwaggerClient::ExchangeApi* | [**create_trade**](docs/ExchangeApi.md#create_trade) | **GET** /exchange/create_trade/ | Create trade.
 *SwaggerClient::ExchangeApi* | [**get_rates**](docs/ExchangeApi.md#get_rates) | **GET** /exchange/get_rates/{coins} | Get rates.
 *SwaggerClient::ExchangeApi* | [**verify_trade**](docs/ExchangeApi.md#verify_trade) | **GET** /exchange/verify_trade/ | Verify trade.
+*SwaggerClient::MultisigApi* | [**create**](docs/MultisigApi.md#create) | **POST** /multi_sig/create/{coin} | Create Unsigned Transaction
+*SwaggerClient::MultisigApi* | [**sign_and_send**](docs/MultisigApi.md#sign_and_send) | **POST** /multi_sig/sign_and_send/{coin} | Sign and Send a Transaction
 *SwaggerClient::TransactionAPIApi* | [**create**](docs/TransactionAPIApi.md#create) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
 *SwaggerClient::TransactionAPIApi* | [**send_raw**](docs/TransactionAPIApi.md#send_raw) | **POST** /transaction/send_raw/{coin} | Send Raw Transaction
 *SwaggerClient::TransactionAPIApi* | [**sign_and_send**](docs/TransactionAPIApi.md#sign_and_send) | **POST** /transaction/sign_and_send/{coin} | Sign and Send a Transaction
@@ -110,8 +112,10 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::InlineResponseDefault](docs/InlineResponseDefault.md)
  - [SwaggerClient::InlineResponseDefault1](docs/InlineResponseDefault1.md)
  - [SwaggerClient::InlineResponseDefault2](docs/InlineResponseDefault2.md)
+ - [SwaggerClient::MultiSigPayment](docs/MultiSigPayment.md)
  - [SwaggerClient::Rate](docs/Rate.md)
  - [SwaggerClient::Rates](docs/Rates.md)
+ - [SwaggerClient::RedeemScript](docs/RedeemScript.md)
  - [SwaggerClient::Signature](docs/Signature.md)
  - [SwaggerClient::Signatures](docs/Signatures.md)
  - [SwaggerClient::Tx](docs/Tx.md)
