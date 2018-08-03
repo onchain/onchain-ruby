@@ -1,4 +1,4 @@
-# SwaggerClient::InlineResponseDefault
+# SwaggerClient::SendStatus
 
 ## Properties
 Name | Type | Description | Notes

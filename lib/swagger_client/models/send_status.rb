@@ -14,41 +14,25 @@ require 'date'
 
 module SwaggerClient
 
-  class AddressesInner
-    attr_accessor :address
+  class SendStatus
+    attr_accessor :message
 
-    attr_accessor :balance
-
-    attr_accessor :human_balance
-
-    attr_accessor :human_unconfirmed_balance
-
-    attr_accessor :unconfirmed_balance
-
-    attr_accessor :usd_balance
+    attr_accessor :status_code
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'address' => :'address',
-        :'balance' => :'balance',
-        :'human_balance' => :'human_balance',
-        :'human_unconfirmed_balance' => :'human_unconfirmed_balance',
-        :'unconfirmed_balance' => :'unconfirmed_balance',
-        :'usd_balance' => :'usd_balance'
+        :'message' => :'message',
+        :'status_code' => :'status_code'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'address' => :'String',
-        :'balance' => :'Integer',
-        :'human_balance' => :'Float',
-        :'human_unconfirmed_balance' => :'Float',
-        :'unconfirmed_balance' => :'Integer',
-        :'usd_balance' => :'Integer'
+        :'message' => :'String',
+        :'status_code' => :'Integer'
       }
     end
 
@@ -60,28 +44,12 @@ module SwaggerClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'address')
-        self.address = attributes[:'address']
+      if attributes.has_key?(:'message')
+        self.message = attributes[:'message']
       end
 
-      if attributes.has_key?(:'balance')
-        self.balance = attributes[:'balance']
-      end
-
-      if attributes.has_key?(:'human_balance')
-        self.human_balance = attributes[:'human_balance']
-      end
-
-      if attributes.has_key?(:'human_unconfirmed_balance')
-        self.human_unconfirmed_balance = attributes[:'human_unconfirmed_balance']
-      end
-
-      if attributes.has_key?(:'unconfirmed_balance')
-        self.unconfirmed_balance = attributes[:'unconfirmed_balance']
-      end
-
-      if attributes.has_key?(:'usd_balance')
-        self.usd_balance = attributes[:'usd_balance']
+      if attributes.has_key?(:'status_code')
+        self.status_code = attributes[:'status_code']
       end
 
     end
@@ -104,12 +72,8 @@ module SwaggerClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          address == o.address &&
-          balance == o.balance &&
-          human_balance == o.human_balance &&
-          human_unconfirmed_balance == o.human_unconfirmed_balance &&
-          unconfirmed_balance == o.unconfirmed_balance &&
-          usd_balance == o.usd_balance
+          message == o.message &&
+          status_code == o.status_code
     end
 
     # @see the `==` method
@@ -121,7 +85,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [address, balance, human_balance, human_unconfirmed_balance, unconfirmed_balance, usd_balance].hash
+      [message, status_code].hash
     end
 
     # Builds the object from hash

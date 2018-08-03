@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**signatures** | [**Signature**](Signature.md) |  | [optional] 
+**signatures** | [**Array&lt;Signature&gt;**](Signature.md) |  | [optional] 
 **tx** | **String** |  | [optional] 
 
 

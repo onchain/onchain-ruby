@@ -80,7 +80,7 @@ module SwaggerClient
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['ApiKeyAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -105,7 +105,7 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :gas_price The gas price to pay.
     # @option opts [Integer] :gas_limit The gas limit to use.
-    # @return [InlineResponseDefault]
+    # @return [SendStatus]
     def sign_and_send(to, from, amount, r, s, v, opts = {})
       data, _status_code, _headers = sign_and_send_with_http_info(to, from, amount, r, s, v, opts)
       return data
@@ -122,7 +122,7 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :gas_price The gas price to pay.
     # @option opts [Integer] :gas_limit The gas limit to use.
-    # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
+    # @return [Array<(SendStatus, Fixnum, Hash)>] SendStatus data, response status code and response headers
     def sign_and_send_with_http_info(to, from, amount, r, s, v, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EthereumAPIApi.sign_and_send ..."
@@ -175,14 +175,14 @@ module SwaggerClient
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['ApiKeyAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponseDefault')
+        :return_type => 'SendStatus')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EthereumAPIApi#sign_and_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

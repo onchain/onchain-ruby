@@ -28,7 +28,7 @@ module SwaggerClient
     # @param amount The amount we wish to send.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fee_address An address to send fees to.
-    # @option opts [String] :fee_amount The amount of fees to send.
+    # @option opts [Integer] :fee_amount The amount of fees to send.
     # @option opts [Integer] :miners_fee The amount to send to the miners.
     # @return [HashesToSign]
     def create(coin, to, from, amount, opts = {})
@@ -44,7 +44,7 @@ module SwaggerClient
     # @param amount The amount we wish to send.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fee_address An address to send fees to.
-    # @option opts [String] :fee_amount The amount of fees to send.
+    # @option opts [Integer] :fee_amount The amount of fees to send.
     # @option opts [Integer] :miners_fee The amount to send to the miners.
     # @return [Array<(HashesToSign, Fixnum, Hash)>] HashesToSign data, response status code and response headers
     def create_with_http_info(coin, to, from, amount, opts = {})
@@ -89,7 +89,7 @@ module SwaggerClient
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['ApiKeyAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -108,7 +108,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param rawtx The raw signed transaction as a hex string
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponseDefault]
+    # @return [SendStatus]
     def send_raw(coin, rawtx, opts = {})
       data, _status_code, _headers = send_raw_with_http_info(coin, rawtx, opts)
       return data
@@ -119,7 +119,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param rawtx The raw signed transaction as a hex string
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
+    # @return [Array<(SendStatus, Fixnum, Hash)>] SendStatus data, response status code and response headers
     def send_raw_with_http_info(coin, rawtx, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: TransactionAPIApi.send_raw ..."
@@ -149,14 +149,14 @@ module SwaggerClient
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['ApiKeyAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponseDefault')
+        :return_type => 'SendStatus')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionAPIApi#send_raw\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -168,7 +168,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param body 
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponseDefault]
+    # @return [SendStatus]
     def sign_and_send(coin, body, opts = {})
       data, _status_code, _headers = sign_and_send_with_http_info(coin, body, opts)
       return data
@@ -179,7 +179,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param body 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
+    # @return [Array<(SendStatus, Fixnum, Hash)>] SendStatus data, response status code and response headers
     def sign_and_send_with_http_info(coin, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: TransactionAPIApi.sign_and_send ..."
@@ -210,14 +210,14 @@ module SwaggerClient
 
       # http body (model)
       post_body = @api_client.object_to_http_body(body)
-      auth_names = []
+      auth_names = ['ApiKeyAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponseDefault')
+        :return_type => 'SendStatus')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransactionAPIApi#sign_and_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

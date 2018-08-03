@@ -20,6 +20,13 @@ Create an unsigned transaction. OnChain returns the transaction for the specifie
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['X-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-KEY'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::TransactionAPIApi.new
 
@@ -33,7 +40,7 @@ amount = 80000 # Integer | The amount we wish to send.
 
 opts = { 
   fee_address: "\"2MttUxQo4jjyVtb5Br49WUEy3LZoZuwtba5\"", # String | An address to send fees to.
-  fee_amount: "10000", # String | The amount of fees to send.
+  fee_amount: 10000, # Integer | The amount of fees to send.
   miners_fee: 10000 # Integer | The amount to send to the miners.
 }
 
@@ -55,7 +62,7 @@ Name | Type | Description  | Notes
  **from** | **String**| The addresses we are sending coins from. OnChain will fetch unspent outs from each address in order until the amount to send is met. We use the public hex key of the address not the hash. | 
  **amount** | **Integer**| The amount we wish to send. | 
  **fee_address** | **String**| An address to send fees to. | [optional] 
- **fee_amount** | **String**| The amount of fees to send. | [optional] 
+ **fee_amount** | **Integer**| The amount of fees to send. | [optional] 
  **miners_fee** | **Integer**| The amount to send to the miners. | [optional] 
 
 ### Return type
@@ -64,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -74,7 +81,7 @@ No authorization required
 
 
 # **send_raw**
-> InlineResponseDefault send_raw(coin, rawtx)
+> SendStatus send_raw(coin, rawtx)
 
 Send Raw Transaction
 
@@ -84,6 +91,13 @@ Send a transaction onto the network.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['X-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-KEY'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::TransactionAPIApi.new
 
@@ -110,11 +124,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponseDefault**](InlineResponseDefault.md)
+[**SendStatus**](SendStatus.md)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -124,7 +138,7 @@ No authorization required
 
 
 # **sign_and_send**
-> InlineResponseDefault sign_and_send(coin, body)
+> SendStatus sign_and_send(coin, body)
 
 Sign and Send a Transaction
 
@@ -134,6 +148,13 @@ Sign and send transaction onto the network.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['X-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-KEY'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::TransactionAPIApi.new
 
@@ -160,11 +181,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponseDefault**](InlineResponseDefault.md)
+[**SendStatus**](SendStatus.md)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

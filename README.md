@@ -54,6 +54,14 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'swagger_client'
 
+# Setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['X-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-KEY'] = 'Bearer'
+end
+
 api_instance = SwaggerClient::AddressAPIApi.new
 
 coin = "\"testnet3\"" # String | The name of the coin i.e. bitcoin
@@ -89,9 +97,6 @@ Class | Method | HTTP request | Description
 *SwaggerClient::ERC20Api* | [**sign_and_send**](docs/ERC20Api.md#sign_and_send) | **POST** /erc20/sign_and_send/ | Sign and send transaction.
 *SwaggerClient::EthereumAPIApi* | [**create**](docs/EthereumAPIApi.md#create) | **POST** /ethereum/create/ | Create Unsigned Transaction
 *SwaggerClient::EthereumAPIApi* | [**sign_and_send**](docs/EthereumAPIApi.md#sign_and_send) | **POST** /ethereum/sign_and_send/ | Sign and send transaction.
-*SwaggerClient::ExchangeApi* | [**create_trade**](docs/ExchangeApi.md#create_trade) | **GET** /exchange/create_trade/ | Create trade.
-*SwaggerClient::ExchangeApi* | [**get_rates**](docs/ExchangeApi.md#get_rates) | **GET** /exchange/get_rates/{coins} | Get rates.
-*SwaggerClient::ExchangeApi* | [**verify_trade**](docs/ExchangeApi.md#verify_trade) | **GET** /exchange/verify_trade/ | Verify trade.
 *SwaggerClient::MultisigApi* | [**create**](docs/MultisigApi.md#create) | **POST** /multi_sig/create/{coin} | Create Unsigned Transaction
 *SwaggerClient::MultisigApi* | [**sign_and_send**](docs/MultisigApi.md#sign_and_send) | **POST** /multi_sig/sign_and_send/{coin} | Sign and Send a Transaction
 *SwaggerClient::TransactionAPIApi* | [**create**](docs/TransactionAPIApi.md#create) | **POST** /transaction/create/{coin} | Create Unsigned Transaction
@@ -109,13 +114,11 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::HashToSign](docs/HashToSign.md)
  - [SwaggerClient::HashesToSign](docs/HashesToSign.md)
  - [SwaggerClient::History](docs/History.md)
- - [SwaggerClient::InlineResponseDefault](docs/InlineResponseDefault.md)
- - [SwaggerClient::InlineResponseDefault1](docs/InlineResponseDefault1.md)
- - [SwaggerClient::InlineResponseDefault2](docs/InlineResponseDefault2.md)
  - [SwaggerClient::MultiSigPayment](docs/MultiSigPayment.md)
  - [SwaggerClient::Rate](docs/Rate.md)
  - [SwaggerClient::Rates](docs/Rates.md)
  - [SwaggerClient::RedeemScript](docs/RedeemScript.md)
+ - [SwaggerClient::SendStatus](docs/SendStatus.md)
  - [SwaggerClient::Signature](docs/Signature.md)
  - [SwaggerClient::Signatures](docs/Signatures.md)
  - [SwaggerClient::Tx](docs/Tx.md)

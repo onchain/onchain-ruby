@@ -67,7 +67,7 @@ module SwaggerClient
 
       # http body (model)
       post_body = @api_client.object_to_http_body(body)
-      auth_names = []
+      auth_names = ['ApiKeyAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -86,7 +86,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param body 
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponseDefault]
+    # @return [SendStatus]
     def sign_and_send(coin, body, opts = {})
       data, _status_code, _headers = sign_and_send_with_http_info(coin, body, opts)
       return data
@@ -97,7 +97,7 @@ module SwaggerClient
     # @param coin The name of the coin i.e. bitcoin
     # @param body 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponseDefault, Fixnum, Hash)>] InlineResponseDefault data, response status code and response headers
+    # @return [Array<(SendStatus, Fixnum, Hash)>] SendStatus data, response status code and response headers
     def sign_and_send_with_http_info(coin, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MultisigApi.sign_and_send ..."
@@ -128,14 +128,14 @@ module SwaggerClient
 
       # http body (model)
       post_body = @api_client.object_to_http_body(body)
-      auth_names = []
+      auth_names = ['ApiKeyAuth']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponseDefault')
+        :return_type => 'SendStatus')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MultisigApi#sign_and_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

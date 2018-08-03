@@ -19,6 +19,13 @@ Create an unsigned transaction. OnChain returns the ethereum transaction in hex 
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['X-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-KEY'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::ERC20Api.new
 
@@ -64,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -74,7 +81,7 @@ No authorization required
 
 
 # **sign_and_send**
-> InlineResponseDefault sign_and_send(to, from, amount, contract_id, decimal_places, r, s, v, opts)
+> SendStatus sign_and_send(to, from, amount, contract_id, decimal_places, r, s, v, opts)
 
 Sign and send transaction.
 
@@ -84,6 +91,13 @@ Sign and send transaction onto the Ethereum network.
 ```ruby
 # load the gem
 require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['X-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-KEY'] = 'Bearer'
+end
 
 api_instance = SwaggerClient::ERC20Api.new
 
@@ -134,11 +148,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponseDefault**](InlineResponseDefault.md)
+[**SendStatus**](SendStatus.md)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

@@ -31,7 +31,7 @@ module SwaggerClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'signatures' => :'Signature',
+        :'signatures' => :'Array<Signature>',
         :'tx' => :'String'
       }
     end
@@ -45,7 +45,9 @@ module SwaggerClient
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
       if attributes.has_key?(:'signatures')
-        self.signatures = attributes[:'signatures']
+        if (value = attributes[:'signatures']).is_a?(Array)
+          self.signatures = value
+        end
       end
 
       if attributes.has_key?(:'tx')
