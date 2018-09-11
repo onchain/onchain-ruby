@@ -14,45 +14,25 @@ require 'date'
 
 module SwaggerClient
 
-  class MultiSigPayment
-    attr_accessor :amount
+  class NetworkAddresses
+    attr_accessor :addresses
 
-    attr_accessor :fee_address
-
-    attr_accessor :fee_amount
-
-    attr_accessor :miners_fee
-
-    attr_accessor :number_of_required_signatures
-
-    attr_accessor :redeem_scripts
-
-    attr_accessor :to
+    attr_accessor :public_keys
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'amount' => :'amount',
-        :'fee_address' => :'fee_address',
-        :'fee_amount' => :'fee_amount',
-        :'miners_fee' => :'miners_fee',
-        :'number_of_required_signatures' => :'number_of_required_signatures',
-        :'redeem_scripts' => :'redeem_scripts',
-        :'to' => :'to'
+        :'addresses' => :'addresses',
+        :'public_keys' => :'public_keys'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'amount' => :'Integer',
-        :'fee_address' => :'String',
-        :'fee_amount' => :'Integer',
-        :'miners_fee' => :'Integer',
-        :'number_of_required_signatures' => :'Integer',
-        :'redeem_scripts' => :'Array<RedeemScript>',
-        :'to' => :'String'
+        :'addresses' => :'Array<NetworkAddress>',
+        :'public_keys' => :'Array<String>'
       }
     end
 
@@ -64,34 +44,16 @@ module SwaggerClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'amount')
-        self.amount = attributes[:'amount']
-      end
-
-      if attributes.has_key?(:'fee_address')
-        self.fee_address = attributes[:'fee_address']
-      end
-
-      if attributes.has_key?(:'fee_amount')
-        self.fee_amount = attributes[:'fee_amount']
-      end
-
-      if attributes.has_key?(:'miners_fee')
-        self.miners_fee = attributes[:'miners_fee']
-      end
-
-      if attributes.has_key?(:'number_of_required_signatures')
-        self.number_of_required_signatures = attributes[:'number_of_required_signatures']
-      end
-
-      if attributes.has_key?(:'redeem_scripts')
-        if (value = attributes[:'redeem_scripts']).is_a?(Array)
-          self.redeem_scripts = value
+      if attributes.has_key?(:'addresses')
+        if (value = attributes[:'addresses']).is_a?(Array)
+          self.addresses = value
         end
       end
 
-      if attributes.has_key?(:'to')
-        self.to = attributes[:'to']
+      if attributes.has_key?(:'public_keys')
+        if (value = attributes[:'public_keys']).is_a?(Array)
+          self.public_keys = value
+        end
       end
 
     end
@@ -114,13 +76,8 @@ module SwaggerClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          amount == o.amount &&
-          fee_address == o.fee_address &&
-          fee_amount == o.fee_amount &&
-          miners_fee == o.miners_fee &&
-          number_of_required_signatures == o.number_of_required_signatures &&
-          redeem_scripts == o.redeem_scripts &&
-          to == o.to
+          addresses == o.addresses &&
+          public_keys == o.public_keys
     end
 
     # @see the `==` method
@@ -132,7 +89,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [amount, fee_address, fee_amount, miners_fee, number_of_required_signatures, redeem_scripts, to].hash
+      [addresses, public_keys].hash
     end
 
     # Builds the object from hash

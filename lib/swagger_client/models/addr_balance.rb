@@ -48,7 +48,7 @@ module SwaggerClient
         :'human_balance' => :'Float',
         :'human_unconfirmed_balance' => :'Float',
         :'unconfirmed_balance' => :'Integer',
-        :'usd_balance' => :'Integer'
+        :'usd_balance' => :'Float'
       }
     end
 

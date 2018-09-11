@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **fee_amount** | **Integer** |  | [optional] 
 **miners_fee** | **Integer** |  | [optional] 
 **number_of_required_signatures** | **Integer** |  | [optional] 
-**redeem_scripts** | [**RedeemScript**](RedeemScript.md) |  | [optional] 
+**redeem_scripts** | [**Array&lt;RedeemScript&gt;**](RedeemScript.md) |  | [optional] 
 **to** | **String** |  | [optional] 
 
 

@@ -93,6 +93,7 @@ Class | Method | HTTP request | Description
 *SwaggerClient::AddressAPIApi* | [**get_balances**](docs/AddressAPIApi.md#get_balances) | **GET** /address/balances/{coin}/{addresses} | Get Balances
 *SwaggerClient::AddressAPIApi* | [**get_history**](docs/AddressAPIApi.md#get_history) | **GET** /address/history/{coin}/{addresses} | Get History
 *SwaggerClient::AddressAPIApi* | [**get_unspent**](docs/AddressAPIApi.md#get_unspent) | **GET** /address/utxo/{coin}/{addresses} | Get Unspent Outs
+*SwaggerClient::AddressAPIApi* | [**to_network_addresses**](docs/AddressAPIApi.md#to_network_addresses) | **POST** /address/to_network_addresses | To Network Address
 *SwaggerClient::ERC20Api* | [**create**](docs/ERC20Api.md#create) | **POST** /erc20/create/ | Create Unsigned Transaction
 *SwaggerClient::ERC20Api* | [**sign_and_send**](docs/ERC20Api.md#sign_and_send) | **POST** /erc20/sign_and_send/ | Sign and send transaction.
 *SwaggerClient::EthereumAPIApi* | [**create**](docs/EthereumAPIApi.md#create) | **POST** /ethereum/create/ | Create Unsigned Transaction
@@ -110,13 +111,16 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::Balance](docs/Balance.md)
  - [SwaggerClient::Balances](docs/Balances.md)
  - [SwaggerClient::Coin](docs/Coin.md)
+ - [SwaggerClient::ErrorMessage](docs/ErrorMessage.md)
  - [SwaggerClient::EthereumToSign](docs/EthereumToSign.md)
+ - [SwaggerClient::ExtendedKey](docs/ExtendedKey.md)
+ - [SwaggerClient::ExtendedKeys](docs/ExtendedKeys.md)
  - [SwaggerClient::HashToSign](docs/HashToSign.md)
  - [SwaggerClient::HashesToSign](docs/HashesToSign.md)
  - [SwaggerClient::History](docs/History.md)
  - [SwaggerClient::MultiSigPayment](docs/MultiSigPayment.md)
- - [SwaggerClient::Rate](docs/Rate.md)
- - [SwaggerClient::Rates](docs/Rates.md)
+ - [SwaggerClient::NetworkAddress](docs/NetworkAddress.md)
+ - [SwaggerClient::NetworkAddresses](docs/NetworkAddresses.md)
  - [SwaggerClient::RedeemScript](docs/RedeemScript.md)
  - [SwaggerClient::SendStatus](docs/SendStatus.md)
  - [SwaggerClient::Signature](docs/Signature.md)

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_balances**](AddressAPIApi.md#get_balances) | **GET** /address/balances/{coin}/{addresses} | Get Balances
 [**get_history**](AddressAPIApi.md#get_history) | **GET** /address/history/{coin}/{addresses} | Get History
 [**get_unspent**](AddressAPIApi.md#get_unspent) | **GET** /address/utxo/{coin}/{addresses} | Get Unspent Outs
+[**to_network_addresses**](AddressAPIApi.md#to_network_addresses) | **POST** /address/to_network_addresses | To Network Address
 
 
 # **get_balance**
@@ -252,6 +253,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **to_network_addresses**
+> Array&lt;NetworkAddresses&gt; to_network_addresses(body)
+
+To Network Address
+
+Convert xpub single and multisig paths to network addresses. If the number of requires signatures is non zero then we will generate multi signature addresses.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['X-API-KEY'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-API-KEY'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::AddressAPIApi.new
+
+body = SwaggerClient::ExtendedKeys.new # ExtendedKeys | 
+
+
+begin
+  #To Network Address
+  result = api_instance.to_network_addresses(body)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling AddressAPIApi->to_network_addresses: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ExtendedKeys**](ExtendedKeys.md)|  | 
+
+### Return type
+
+[**Array&lt;NetworkAddresses&gt;**](NetworkAddresses.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

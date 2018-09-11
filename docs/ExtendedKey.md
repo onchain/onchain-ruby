@@ -1,8 +1,9 @@
-# SwaggerClient::RedeemScript
+# SwaggerClient::ExtendedKey
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**public_keys** | **Array&lt;String&gt;** |  | [optional] 
+**path** | **String** |  | [optional] 
+**xpub** | **String** |  | [optional] 
 
 

@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **human_balance** | **Float** |  | [optional] 
 **human_unconfirmed_balance** | **Float** |  | [optional] 
 **unconfirmed_balance** | **Integer** |  | [optional] 
-**usd_balance** | **Integer** |  | [optional] 
+**usd_balance** | **Float** |  | [optional] 
 
 

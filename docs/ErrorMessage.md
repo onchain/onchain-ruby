@@ -1,8 +1,8 @@
-# SwaggerClient::RedeemScript
+# SwaggerClient::ErrorMessage
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**public_keys** | **Array&lt;String&gt;** |  | [optional] 
+**message** | **String** |  | [optional] 
 
 

@@ -15,20 +15,20 @@ require 'date'
 module SwaggerClient
 
   class RedeemScript
-    attr_accessor :public_key
+    attr_accessor :public_keys
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'public_key' => :'public_key'
+        :'public_keys' => :'public_keys'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'public_key' => :'String'
+        :'public_keys' => :'Array<String>'
       }
     end
 
@@ -40,8 +40,10 @@ module SwaggerClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'public_key')
-        self.public_key = attributes[:'public_key']
+      if attributes.has_key?(:'public_keys')
+        if (value = attributes[:'public_keys']).is_a?(Array)
+          self.public_keys = value
+        end
       end
 
     end
@@ -64,7 +66,7 @@ module SwaggerClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          public_key == o.public_key
+          public_keys == o.public_keys
     end
 
     # @see the `==` method
@@ -76,7 +78,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [public_key].hash
+      [public_keys].hash
     end
 
     # Builds the object from hash

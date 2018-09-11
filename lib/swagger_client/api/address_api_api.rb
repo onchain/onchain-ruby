@@ -273,5 +273,60 @@ module SwaggerClient
       end
       return data, status_code, headers
     end
+
+    # To Network Address
+    # Convert xpub single and multisig paths to network addresses. If the number of requires signatures is non zero then we will generate multi signature addresses.
+    # @param body 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<NetworkAddresses>]
+    def to_network_addresses(body, opts = {})
+      data, _status_code, _headers = to_network_addresses_with_http_info(body, opts)
+      return data
+    end
+
+    # To Network Address
+    # Convert xpub single and multisig paths to network addresses. If the number of requires signatures is non zero then we will generate multi signature addresses.
+    # @param body 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<NetworkAddresses>, Fixnum, Hash)>] Array<NetworkAddresses> data, response status code and response headers
+    def to_network_addresses_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: AddressAPIApi.to_network_addresses ..."
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AddressAPIApi.to_network_addresses"
+      end
+      # resource path
+      local_var_path = "/address/to_network_addresses"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(body)
+      auth_names = ['ApiKeyAuth']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<NetworkAddresses>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressAPIApi#to_network_addresses\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end
