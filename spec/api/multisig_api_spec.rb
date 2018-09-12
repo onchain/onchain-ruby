@@ -1,3 +1,7 @@
+require 'spec_helper'
+require 'json'
+
+
 describe 'MultisigApi' do
   before do
     # run before each test
@@ -14,35 +18,29 @@ describe 'MultisigApi' do
     end
   end
 
-  describe 'test an instance of MultisigApi' do
-    it 'should create an instance of MultisigApi' do
-      expect(@instance).to be_instance_of(SwaggerClient::MultisigApi)
-    end
+  it 'should create an instance of MultisigApi' do
+    expect(@instance).to be_instance_of(SwaggerClient::MultisigApi)
   end
 
-  describe 'test creating a multi sig payment' do
-    it 'should create a multi signature transaction' do
+  it 'should create a multi signature transaction' do
       
-      
-      rs = SwaggerClient::RedeemScript.new({
-        :public_key => '036f3972643ab052f9f77cbaf67f0e517180ac488453bde8cb27e9e3e1d6847d49'
-      })
-      
-      
-      scripts = SwaggerClient::MultiSigPayment.new({ 
-        :number_of_required_signatures => 2, 
-        :redeem_scripts => [rs],
-        :to => 'mzYVx2FgY35SFkRNCSUxCGqd4UhXZ7eXmE',
-        :amount => 100000,
-        :fee_address => '',
-        :fee_amount => 0,
-        :miners_fee => 40000
-      })
-      
-      tx = @instance.create('testnet3', scripts)
-      
-      puts tx
-      
-    end
+    rs = SwaggerClient::RedeemScript.new(:public_keys => [
+      "02fd89e243d38f4e24237eaac4cd3a6873ce45aa4036ec0c7b79a4d4ac0fefebc4", 
+      "0396e42d3c584da0300ee44dcbaee0eccaa0e6ae2264fdd2554af6d2953f95bf99"])
+    
+    multi_sig = SwaggerClient::MultiSigPayment.new({ 
+      :number_of_required_signatures => 2, 
+      :redeem_scripts => [rs],
+      :to => 'mzYVx2FgY35SFkRNCSUxCGqd4UhXZ7eXmE',
+      :fee_address => "",
+      :fee_amount => 0,
+      :amount => 100000,
+      :miners_fee => 40000
+    })
+    
+    tx = @instance.create('testnet3', multi_sig)
+    
+    expect(tx.tx == nil).to eq(false)
+    
   end
 end
