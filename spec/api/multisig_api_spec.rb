@@ -6,6 +6,12 @@ describe 'MultisigApi' do
     if ENV['C9_HOSTNAME'] != nil
       SwaggerClient::Configuration.default.host = ENV['C9_HOSTNAME']
     end
+    
+    if ENV['ONCHAIN_API_KEY'] != nil
+      SwaggerClient.configure do |config|
+        config.api_key['X-API-KEY'] = ENV['ONCHAIN_API_KEY']
+      end
+    end
   end
 
   describe 'test an instance of MultisigApi' do
