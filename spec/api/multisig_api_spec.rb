@@ -34,8 +34,8 @@ describe 'MultisigApi' do
       :to => 'mzYVx2FgY35SFkRNCSUxCGqd4UhXZ7eXmE',
       :fee_address => "",
       :fee_amount => 0,
-      :amount => 100000,
-      :miners_fee => 40000
+      :amount => 11366,
+      :miners_fee => 0
     })
     
     tx = @instance.create('testnet3', multi_sig)
